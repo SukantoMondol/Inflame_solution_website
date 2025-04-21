@@ -1,21 +1,19 @@
-
 import Head from "next/head";
 import Link from "next/link";
 import { IoMdCheckmarkCircleOutline, IoIosLock } from "react-icons/io";
-import { FaCashRegister, FaChartLine, FaGift, FaStar } from "react-icons/fa";
+import { FaBullhorn, FaChartLine, FaAd, FaUsers, FaRocket, FaCogs, FaStar, FaDollarSign } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { FaUsers, FaPlug, FaMobileAlt } from "react-icons/fa";
 import { useState } from "react";
 
-export default function InventorySoftware() {
+export default function PaidMarketing() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [activeTab, setActiveTab] = useState("dashboard");
+  const [activeTab, setActiveTab] = useState("ppc");
 
   const slides = [
-    { src: "/img/inventory-dashboard.jpg", alt: "InventoryPro Dashboard" },
-    { src: "/img/stock-tracking.jpg", alt: "Stock Management" },
-    { src: "/img/order-insights.jpg", alt: "Order Insights" },
+    { src: "/img/ppc-campaigns.jpg", alt: "AdBlitz PPC Campaigns" },
+    { src: "/img/social-ads.jpg", alt: "Social Media Ads" },
+    { src: "/img/display-ads.jpg", alt: "Display Advertising" },
   ];
 
   const staggerContainer = {
@@ -29,100 +27,101 @@ export default function InventorySoftware() {
 
   const tabs = [
     {
-      id: "dashboard",
-      title: "Smart Dashboard",
-      content:
-        "Monitor stock levels, track orders, and manage warehouses with a clear, real-time dashboard designed for efficiency.",
+      id: "ppc",
+      title: "PPC Campaigns",
+      content: "Maximize ROI with targeted pay-per-click advertising campaigns.",
     },
     {
-      id: "stock",
-      title: "Stock Management",
-      content:
-        "Track inventory across multiple locations, set reorder points, and avoid stockouts with automated alerts.",
+      id: "social",
+      title: "Social Media Ads",
+      content: "Engage audiences with dynamic ads on social platforms.",
     },
     {
-      id: "orders",
-      title: "Order Insights",
-      content:
-        "Analyze order trends, optimize fulfillment, and streamline supply chain operations with powerful analytics.",
+      id: "display",
+      title: "Display Ads",
+      content: "Capture attention with visually stunning display advertising.",
     },
   ];
 
   const fadeIn = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    transition: { duration: 0.8, ease: "easeOut" },
-  };
-
-  const slideUp = {
-    initial: { opacity: 0, y: 50 },
+    initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.8, ease: "easeOut" },
   };
 
+  const slideUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 1, ease: "easeOut" },
+  };
+
   const slideLeft = {
-    initial: { opacity: 0, x: -50 },
+    initial: { opacity: 0, x: -60 },
     animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.8, ease: "easeOut" },
+    transition: { duration: 1, ease: "easeOut" },
   };
 
   const slideRight = {
-    initial: { opacity: 0, x: 50 },
+    initial: { opacity: 0, x: 60 },
     animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.8, ease: "easeOut" },
+    transition: { duration: 1, ease: "easeOut" },
+  };
+
+  const glowEffect = {
+    whileHover: {
+      scale: 1.1,
+      boxShadow: "0 0 20px rgba(2, 136, 209, 0.5), 0 0 40px rgba(2, 136, 209, 0.3)",
+      rotate: 2,
+      transition: { duration: 0.3 },
+    },
+    whileTap: { scale: 0.95 },
   };
 
   return (
     <>
       <Head>
-        <title>Inventory Solutions</title>
+        <title>Paid Marketing Solutions</title>
         <meta
           name="description"
-          content="Optimize your inventory management with InventoryPro’s real-time stock tracking, automated order processing, and powerful analytics."
+          content="Drive results with AdBlitz’s high-impact paid marketing strategies, including PPC, social media ads, and display advertising."
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap"
           rel="stylesheet"
           crossOrigin="anonymous"
         />
       </Head>
 
-      <div className="pos-software">
+      <div className="paid-marketing">
+
+
         {/* Hero Section */}
         <section className="hero">
           <div className="container">
             <motion.div
               className="hero-content"
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
             >
               <h1 className="h1">
-                Master Inventory with <span>InventoryPro</span>
+                Amplify with <span>Our Marketing</span>
               </h1>
               <p className="p">
-                Streamline stock management, automate orders, and gain insights to keep your supply chain running smoothly and efficiently.
+                Skyrocket your brand with high-impact paid marketing strategies, including PPC, social media ads, and display advertising.
               </p>
               <div className="hero-buttons">
                 <motion.a
                   href="#features"
                   className="btn btn-primary"
-                  whileHover={{
-                    scale: 1.1,
-                    boxShadow: "0 8px 20px rgba(245, 158, 11, 0.3)",
-                  }}
-                  whileTap={{ scale: 0.95 }}
+                  {...glowEffect}
                 >
-                  Discover Features
+                  Explore Features
                 </motion.a>
                 <motion.a
                   href="#demo"
                   className="btn btn-secondary"
-                  whileHover={{
-                    scale: 1.1,
-                    boxShadow: "0 8px 20px rgba(244, 63, 94, 0.3)",
-                  }}
-                  whileTap={{ scale: 0.95 }}
+                  {...glowEffect}
                 >
                   Watch Demo
                 </motion.a>
@@ -135,22 +134,23 @@ export default function InventorySoftware() {
               animate="animate"
             >
               <Image
-                src="/img/inventory-hero.png"
-                alt="InventoryPro Dashboard"
-                width={1000}
-                height={550}
+                src="/img/marketing-hero.png"
+                alt="AdBlitz Platform"
+                width={1200}
+                height={650}
                 style={{ objectFit: "contain" }}
                 className="hero-img"
+                onError={() => console.error("Failed to load hero image")}
               />
             </motion.div>
           </div>
         </section>
         <div className="headers">
           <span className="banner-text">
-            Best Software development company in Bangladesh
+            High-Impact Paid Marketing Solutions
           </span>
-          <Link href="contact">
-            <span className="demo">Book for Demo</span>
+          <Link href="/contact">
+            <span className="demo">Book a Demo</span>
           </Link>
         </div>
 
@@ -164,52 +164,52 @@ export default function InventorySoftware() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h2 className="h1">Features That Transform Inventory</h2>
+              <h2 className="h1">Features That Ignite</h2>
               <p className="p">
-                Empower your business with tools for seamless stock control, order automation, and supply chain optimization.
+                Supercharge your campaigns with cutting-edge tools for paid advertising and analytics.
               </p>
             </motion.div>
             <div className="feature-grid">
               {[
                 {
-                  icon: <FaCashRegister />,
-                  title: "Real-Time Stock Tracking",
-                  desc: "Monitor inventory levels across all locations instantly.",
+                  icon: <FaBullhorn />,
+                  title: "PPC Optimization",
+                  desc: "Maximize ROI with precision-targeted PPC campaigns.",
                 },
                 {
                   icon: <FaChartLine />,
-                  title: "Order Analytics",
-                  desc: "Gain insights into order trends and optimize fulfillment.",
+                  title: "Social Media Ads",
+                  desc: "Engage audiences with dynamic, platform-specific ads.",
+                },
+                {
+                  icon: <FaAd />,
+                  title: "Display Advertising",
+                  desc: "Capture attention with stunning visual ad creatives.",
                 },
                 {
                   icon: <FaUsers />,
-                  title: "Multi-Warehouse Support",
-                  desc: "Manage stock across multiple warehouses with ease.",
+                  title: "Audience Targeting",
+                  desc: "Reach the right customers with advanced segmentation.",
                 },
                 {
-                  icon: <FaMobileAlt />,
-                  title: "Mobile Management",
-                  desc: "Track and manage inventory on the go with our mobile app.",
-                },
-                {
-                  icon: <FaGift />,
-                  title: "Automated Reordering",
-                  desc: "Set reorder points to prevent stockouts automatically.",
+                  icon: <FaRocket />,
+                  title: "Real-Time Analytics",
+                  desc: "Track campaign performance with live data insights.",
                 },
                 {
                   icon: <IoIosLock />,
-                  title: "Secure Data",
-                  desc: "Protect inventory data with top-tier encryption.",
+                  title: "Ad Security",
+                  desc: "Protect your campaigns with fraud detection tools.",
                 },
                 {
-                  icon: <FaPlug />,
-                  title: "Seamless Integrations",
-                  desc: "Sync with e-commerce, POS, and accounting systems.",
+                  icon: <FaCogs />,
+                  title: "Custom Integrations",
+                  desc: "Seamlessly connect with your marketing stack.",
                 },
                 {
-                  icon: <FaStar />,
-                  title: "Barcode Scanning",
-                  desc: "Simplify stock updates with integrated barcode support.",
+                  icon: <FaDollarSign />,
+                  title: "Budget Optimization",
+                  desc: "Allocate ad spend efficiently for maximum impact.",
                 },
               ].map((feature, index) => (
                 <motion.div
@@ -220,10 +220,6 @@ export default function InventorySoftware() {
                   whileInView="animate"
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.15 }}
-                  whileHover={{
-                    y: -10,
-                    boxShadow: "0 15px 30px rgba(0,0,0,0.15)",
-                  }}
                 >
                   <div className="icon-wrapper">{feature.icon}</div>
                   <h3>{feature.title}</h3>
@@ -244,9 +240,9 @@ export default function InventorySoftware() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h2 className="h1">Why InventoryPro Excels</h2>
+              <h2 className="h1">Why AdBlitz Dominates</h2>
               <p className="p">
-                Take control of your inventory and streamline operations with InventoryPro’s powerful tools.
+                Achieve unparalleled results with tools designed for precision, scale, and impact.
               </p>
             </motion.div>
             <div className="benefits-grid">
@@ -258,35 +254,36 @@ export default function InventorySoftware() {
                 viewport={{ once: true }}
               >
                 <Image
-                  src="/img/inventory-benefits.png"
-                  alt="InventoryPro Benefits"
-                  width={880}
-                  height={450}
+                  src="/img/marketing-benefits.png"
+                  alt="AdBlitz Benefits"
+                  width={1000}
+                  height={550}
                   style={{ objectFit: "contain" }}
                   className="benefits-img"
+                  onError={() => console.error("Failed to load benefits image")}
                 />
               </motion.div>
               <div className="benefits-list">
                 {[
                   {
-                    title: "Reduce Stockouts",
-                    desc: "Automated alerts ensure you never run out of stock.",
+                    title: "Maximize ROI",
+                    desc: "Optimize ad spend for higher returns.",
                   },
                   {
-                    title: "Optimize Fulfillment",
-                    desc: "Speed up order processing with smart automation.",
+                    title: "Scale Campaigns",
+                    desc: "Expand reach with flexible ad strategies.",
                   },
                   {
-                    title: "Simplify Management",
-                    desc: "Control inventory from one intuitive platform.",
+                    title: "Target Precisely",
+                    desc: "Reach ideal audiences with advanced tools.",
                   },
                   {
-                    title: "Improve Accuracy",
-                    desc: "Minimize errors with barcode scanning and real-time updates.",
+                    title: "Track Performance",
+                    desc: "Monitor results with real-time analytics.",
                   },
                   {
-                    title: "Scale Seamlessly",
-                    desc: "Grow your operations with tools that adapt to your needs.",
+                    title: "Stay Secure",
+                    desc: "Protect campaigns with robust security.",
                   },
                 ].map((benefit, index) => (
                   <motion.div
@@ -320,9 +317,9 @@ export default function InventorySoftware() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h2>Experience InventoryPro in Action</h2>
+              <h2>Experience AdBlitz in Action</h2>
               <p className="p">
-                Explore the power of InventoryPro’s inventory software through an interactive demo. See how our smart dashboard, stock management, and order insights can optimize your operations.
+                Explore our PPC, social media, and display ad tools through an immersive demo.
               </p>
             </motion.div>
             <motion.div
@@ -333,7 +330,6 @@ export default function InventorySoftware() {
               viewport={{ once: true }}
             >
               <div className="demo-grid">
-                {/* Carousel */}
                 <motion.div
                   className="demo-carousel"
                   variants={slideLeft}
@@ -344,16 +340,16 @@ export default function InventorySoftware() {
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={currentSlide}
-                      initial={{ opacity: 0, x: 50 }}
+                      initial={{ opacity: 0, x: 60 }}
                       animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -50 }}
+                      exit={{ opacity: 0, x: -60 }}
                       transition={{ duration: 0.5 }}
                     >
                       <Image
                         src={slides[currentSlide].src}
                         alt={slides[currentSlide].alt}
-                        width={600}
-                        height={400}
+                        width={700}
+                        height={500}
                         style={{ objectFit: "cover" }}
                         className="demo-img"
                         onError={() => console.error(`Failed to load image: ${slides[currentSlide].src}`)}
@@ -374,7 +370,6 @@ export default function InventorySoftware() {
                   </div>
                 </motion.div>
 
-                {/* Tabs and Content */}
                 <motion.div
                   className="demo-content"
                   variants={slideRight}
@@ -391,7 +386,7 @@ export default function InventorySoftware() {
                           console.log("Tab clicked:", tab.id);
                           setActiveTab(tab.id);
                         }}
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{ scale: 1.1, rotate: 5 }}
                         whileTap={{ scale: 0.95 }}
                       >
                         {tab.title}
@@ -401,10 +396,10 @@ export default function InventorySoftware() {
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={activeTab}
-                      initial={{ opacity: 0, y: 20 }}
+                      initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.3 }}
+                      exit={{ opacity: 0, y: -30 }}
+                      transition={{ duration: 0.4 }}
                       className="demo-tab-content"
                     >
                       <h4>{tabs.find((tab) => tab.id === activeTab)?.title}</h4>
@@ -418,9 +413,9 @@ export default function InventorySoftware() {
                     animate="animate"
                   >
                     {[
-                      "Efficient inventory control with a user-friendly interface",
-                      "Real-time insights to optimize stock levels",
-                      "Seamless integration with your existing systems",
+                      "High-ROI PPC campaigns",
+                      "Dynamic social media ads",
+                      "Stunning display creatives",
                     ].map((benefit, index) => (
                       <motion.div
                         key={index}
@@ -435,25 +430,19 @@ export default function InventorySoftware() {
                 </motion.div>
               </div>
 
-              {/* Floating Request Demo Button */}
               <Link href="/request-demo" legacyBehavior>
                 <motion.a
                   className="btn btn-primary demo-request-btn"
                   onClick={() => console.log("Request Demo clicked")}
-                  whileHover={{
-                    scale: 1.1,
-                    boxShadow: "0 8px 20px rgba(245, 158, 11, 0.4)",
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  animate={{ scale: [1, 1.03, 1] }}
-                  transition={{ repeat: Infinity, duration: 2 }}
+                  {...glowEffect}
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ repeat: Infinity, duration: 1.5 }}
                 >
                   Request a Live Demo
                 </motion.a>
               </Link>
             </motion.div>
 
-            {/* FAQ Snippet */}
             <motion.div
               className="demo-faq"
               variants={fadeIn}
@@ -463,15 +452,15 @@ export default function InventorySoftware() {
             >
               <h4>Frequently Asked Questions</h4>
               <div className="faq-item">
-                <h5>Is InventoryPro compatible with mobile devices?</h5>
+                <h5>Is AdBlitz suitable for small budgets?</h5>
                 <p>
-                  Yes, InventoryPro offers full mobile compatibility, allowing you to manage stock and orders from anywhere using our mobile app.
+                  Yes, our tools are designed to optimize even small ad budgets for maximum impact.
                 </p>
               </div>
               <div className="faq-item">
-                <h5>Can I integrate InventoryPro with my existing systems?</h5>
+                <h5>Can I integrate AdBlitz with my analytics tools?</h5>
                 <p>
-                  Absolutely. InventoryPro supports seamless integrations with e-commerce, POS, and accounting platforms.
+                  Absolutely, we support integrations with major analytics platforms.
                 </p>
               </div>
             </motion.div>
@@ -488,28 +477,25 @@ export default function InventorySoftware() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h2>Voices from Inventory Experts</h2>
-              <p>Hear from businesses thriving with InventoryPro’s inventory solutions.</p>
+              <h2>Voices from Our Clients</h2>
+              <p>Hear from brands succeeding with AdBlitz’s paid marketing solutions.</p>
             </motion.div>
             <div className="testimonials-grid">
               {[
                 {
-                  name: "Mark Jensen",
-                  role: "Warehouse Manager",
-                  quote:
-                    "InventoryPro’s real-time tracking saved us from countless stockouts. It’s a must-have for our warehouse!",
+                  name: "Sarah Lee",
+                  role: "Marketing Director, TechTrend",
+                  quote: "AdBlitz’s PPC campaigns tripled our conversions in weeks!",
                 },
                 {
-                  name: "Priya Sharma",
+                  name: "James Patel",
                   role: "E-commerce Owner",
-                  quote:
-                    "The barcode scanning and integrations make inventory management so easy. Orders are fulfilled faster now.",
+                  quote: "Their social media ads are visually stunning and highly effective.",
                 },
                 {
-                  name: "Liam Chen",
-                  role: "Supply Chain Director",
-                  quote:
-                    "InventoryPro’s analytics help us optimize our supply chain. It’s transformed how we operate across locations.",
+                  name: "Maria Gomez",
+                  role: "Startup Founder",
+                  quote: "AdBlitz’s analytics helped us optimize our ad spend perfectly.",
                 },
               ].map((testimonial, index) => (
                 <motion.div
@@ -520,10 +506,6 @@ export default function InventorySoftware() {
                   whileInView="animate"
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 }}
-                  whileHover={{
-                    y: -10,
-                    boxShadow: "0 15px 30px rgba(0,0,0,0.15)",
-                  }}
                 >
                   <FaStar className="star-icon" />
                   <p className="quote">“{testimonial.quote}”</p>
@@ -545,46 +527,46 @@ export default function InventorySoftware() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h2>Choose Your Inventory Plan</h2>
-              <p>Flexible pricing to optimize your inventory management.</p>
+              <h2>Choose Your Campaign Plan</h2>
+              <p>Flexible pricing to fuel your paid marketing success.</p>
             </motion.div>
             <div className="pricing-grid">
               {[
                 {
-                  name: "Starter",
-                  price: "$29",
+                  name: "Spark",
+                  price: "$199",
                   features: [
-                    "1 Warehouse",
-                    "Basic Stock Tracking",
-                    "Standard Reports",
+                    "Up to $5K Ad Spend",
+                    "Basic PPC Tools",
+                    "Social Media Ads",
                     "Email Support",
                   ],
-                  link: "/pricing/starter",
+                  link: "contact",
                   cta: "Get Started",
                 },
                 {
-                  name: "Growth",
-                  price: "$79",
+                  name: "Ignite",
+                  price: "$499",
                   features: [
-                    "Up to 5 Warehouses",
-                    "Automated Reordering",
-                    "Barcode Scanning",
-                    "Integrations",
+                    "Up to $20K Ad Spend",
+                    "Advanced PPC Tools",
+                    "Full Social & Display Ads",
+                    "Analytics Dashboard",
                     "Priority Support",
                   ],
-                  link: "/pricing/growth",
-                  cta: "Choose Growth",
+                  link: "contact",
+                  cta: "Choose Ignite",
                   popular: true,
                 },
                 {
-                  name: "Enterprise",
+                  name: "Blaze",
                   price: "Custom",
                   features: [
-                    "Unlimited Warehouses",
-                    "All Growth Features",
+                    "Unlimited Ad Spend",
+                    "All Ignite Features",
+                    "Custom Ad Creatives",
                     "Dedicated Manager",
-                    "Custom Integrations",
-                    "24/7 Support",
+                    "API Integrations",
                   ],
                   link: "/contact",
                   cta: "Contact Us",
@@ -598,10 +580,6 @@ export default function InventorySoftware() {
                   whileInView="animate"
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 }}
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
-                  }}
                 >
                   {plan.popular && <span className="popular-badge">Most Popular</span>}
                   <h3>{plan.name}</h3>
@@ -620,8 +598,7 @@ export default function InventorySoftware() {
                   <Link href={plan.link} legacyBehavior>
                     <motion.a
                       className={`btn ${plan.popular ? "btn-primary" : "btn-secondary"}`}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      {...glowEffect}
                     >
                       {plan.cta}
                     </motion.a>
@@ -642,18 +619,14 @@ export default function InventorySoftware() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h2>Ready to Optimize Your Inventory?</h2>
+              <h2>Ready to Amplify Your Brand?</h2>
               <p>
-                Start your free trial and let InventoryPro bring efficiency to your stock management and spark to your operations.
+                Start your free trial and see how AdBlitz drives results with high-impact paid marketing.
               </p>
               <motion.a
                 href="/signup"
-                className="btn btn-primary cta-btn"
-                whileHover={{
-                  scale: 1.1,
-                  boxShadow: "0 8px 20px rgba(245, 158, 11, 0.3)",
-                }}
-                whileTap={{ scale: 0.95 }}
+                className="btn cta-btn"
+                {...glowEffect}
               >
                 Try for Free
               </motion.a>
@@ -661,8 +634,6 @@ export default function InventorySoftware() {
           </div>
         </section>
       </div>
-
-
     </>
   );
 }

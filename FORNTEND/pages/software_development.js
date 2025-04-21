@@ -1,21 +1,20 @@
-
+// pages/index.js
 import Head from "next/head";
 import Link from "next/link";
 import { IoMdCheckmarkCircleOutline, IoIosLock } from "react-icons/io";
-import { FaCashRegister, FaChartLine, FaGift, FaStar } from "react-icons/fa";
+import { FaCode, FaFileAlt, FaBook, FaUsers, FaRocket, FaCogs, FaStar } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { FaUsers, FaPlug, FaMobileAlt } from "react-icons/fa";
 import { useState } from "react";
 
-export default function InventorySoftware() {
+export default function LatexSoftware() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [activeTab, setActiveTab] = useState("dashboard");
+  const [activeTab, setActiveTab] = useState("editor");
 
   const slides = [
-    { src: "/img/inventory-dashboard.jpg", alt: "InventoryPro Dashboard" },
-    { src: "/img/stock-tracking.jpg", alt: "Stock Management" },
-    { src: "/img/order-insights.jpg", alt: "Order Insights" },
+    { src: "/img/latex-editor.jpg", alt: "LaTeXPro Editor" },
+    { src: "/img/document-templates.jpg", alt: "Document Templates" },
+    { src: "/img/collaboration-tools.jpg", alt: "Collaboration Tools" },
   ];
 
   const staggerContainer = {
@@ -29,22 +28,19 @@ export default function InventorySoftware() {
 
   const tabs = [
     {
-      id: "dashboard",
-      title: "Smart Dashboard",
-      content:
-        "Monitor stock levels, track orders, and manage warehouses with a clear, real-time dashboard designed for efficiency.",
+      id: "editor",
+      title: "LaTeX Editor",
+      content: "Craft professional LaTeX documents with real-time preview and syntax support.",
     },
     {
-      id: "stock",
-      title: "Stock Management",
-      content:
-        "Track inventory across multiple locations, set reorder points, and avoid stockouts with automated alerts.",
+      id: "templates",
+      title: "Templates",
+      content: "Use pre-designed templates for reports, theses, and presentations.",
     },
     {
-      id: "orders",
-      title: "Order Insights",
-      content:
-        "Analyze order trends, optimize fulfillment, and streamline supply chain operations with powerful analytics.",
+      id: "collaboration",
+      title: "Collaboration",
+      content: "Work together on LaTeX projects with real-time collaboration tools.",
     },
   ];
 
@@ -75,19 +71,21 @@ export default function InventorySoftware() {
   return (
     <>
       <Head>
-        <title>Inventory Solutions</title>
+        <title>Software Development</title>
         <meta
           name="description"
-          content="Optimize your inventory management with InventoryPro’s real-time stock tracking, automated order processing, and powerful analytics."
+          content="Create professional LaTeX documents with LaTeXPro’s powerful editor, templates, and collaboration tools."
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
           rel="stylesheet"
           crossOrigin="anonymous"
         />
       </Head>
 
-      <div className="pos-software">
+      <div className="latex-software">
+
+
         {/* Hero Section */}
         <section className="hero">
           <div className="container">
@@ -98,10 +96,10 @@ export default function InventorySoftware() {
               transition={{ duration: 1.2, ease: "easeOut" }}
             >
               <h1 className="h1">
-                Master Inventory with <span>InventoryPro</span>
+                Master Documents with <span>Software</span>
               </h1>
               <p className="p">
-                Streamline stock management, automate orders, and gain insights to keep your supply chain running smoothly and efficiently.
+                Build professional Software documents, automate workflows, and collaborate effortlessly with tools designed for precision and productivity.
               </p>
               <div className="hero-buttons">
                 <motion.a
@@ -109,7 +107,7 @@ export default function InventorySoftware() {
                   className="btn btn-primary"
                   whileHover={{
                     scale: 1.1,
-                    boxShadow: "0 8px 20px rgba(245, 158, 11, 0.3)",
+                    boxShadow: "0 8px 20px rgba(45, 212, 191, 0.3)",
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -120,7 +118,7 @@ export default function InventorySoftware() {
                   className="btn btn-secondary"
                   whileHover={{
                     scale: 1.1,
-                    boxShadow: "0 8px 20px rgba(244, 63, 94, 0.3)",
+                    boxShadow: "0 8px 20px rgba(30, 64, 175, 0.3)",
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -135,22 +133,23 @@ export default function InventorySoftware() {
               animate="animate"
             >
               <Image
-                src="/img/inventory-hero.png"
-                alt="InventoryPro Dashboard"
-                width={1000}
-                height={550}
+                src="/img/latex-hero.png"
+                alt="LaTeXPro Dashboard"
+                width={1100}
+                height={600}
                 style={{ objectFit: "contain" }}
                 className="hero-img"
+                onError={() => console.error("Failed to load hero image")}
               />
             </motion.div>
           </div>
         </section>
         <div className="headers">
           <span className="banner-text">
-            Best Software development company in Bangladesh
+            Premier LaTeX Software Development Solutions
           </span>
-          <Link href="contact">
-            <span className="demo">Book for Demo</span>
+          <Link href="/contact">
+            <span className="demo">Book a Demo</span>
           </Link>
         </div>
 
@@ -164,52 +163,52 @@ export default function InventorySoftware() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h2 className="h1">Features That Transform Inventory</h2>
+              <h2 className="h1">Features That Simplify</h2>
               <p className="p">
-                Empower your business with tools for seamless stock control, order automation, and supply chain optimization.
+                Empower your team with tools for creating, managing, and collaborating on software documents.
               </p>
             </motion.div>
             <div className="feature-grid">
               {[
                 {
-                  icon: <FaCashRegister />,
-                  title: "Real-Time Stock Tracking",
-                  desc: "Monitor inventory levels across all locations instantly.",
+                  icon: <FaCode />,
+                  title: "Advanced Editor",
+                  desc: "Edit LaTeX with real-time preview and syntax highlighting.",
                 },
                 {
-                  icon: <FaChartLine />,
-                  title: "Order Analytics",
-                  desc: "Gain insights into order trends and optimize fulfillment.",
+                  icon: <FaFileAlt />,
+                  title: "Template Library",
+                  desc: "Access templates for academic, technical, and professional documents.",
+                },
+                {
+                  icon: <FaBook />,
+                  title: "Version Control",
+                  desc: "Track document changes and manage revisions seamlessly.",
                 },
                 {
                   icon: <FaUsers />,
-                  title: "Multi-Warehouse Support",
-                  desc: "Manage stock across multiple warehouses with ease.",
+                  title: "Team Collaboration",
+                  desc: "Work together on LaTeX projects in real time.",
                 },
                 {
-                  icon: <FaMobileAlt />,
-                  title: "Mobile Management",
-                  desc: "Track and manage inventory on the go with our mobile app.",
-                },
-                {
-                  icon: <FaGift />,
-                  title: "Automated Reordering",
-                  desc: "Set reorder points to prevent stockouts automatically.",
+                  icon: <FaRocket />,
+                  title: "Cloud Sync",
+                  desc: "Access your projects from anywhere with cloud storage.",
                 },
                 {
                   icon: <IoIosLock />,
-                  title: "Secure Data",
-                  desc: "Protect inventory data with top-tier encryption.",
+                  title: "Secure Storage",
+                  desc: "Protect your documents with enterprise-grade encryption.",
                 },
                 {
-                  icon: <FaPlug />,
-                  title: "Seamless Integrations",
-                  desc: "Sync with e-commerce, POS, and accounting systems.",
+                  icon: <FaCogs />,
+                  title: "Custom Integrations",
+                  desc: "Connect with publishing and workflow platforms.",
                 },
                 {
                   icon: <FaStar />,
-                  title: "Barcode Scanning",
-                  desc: "Simplify stock updates with integrated barcode support.",
+                  title: "Automation Tools",
+                  desc: "Automate formatting and compilation for efficiency.",
                 },
               ].map((feature, index) => (
                 <motion.div
@@ -244,9 +243,9 @@ export default function InventorySoftware() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h2 className="h1">Why InventoryPro Excels</h2>
+              <h2 className="h1">Why Software Stands Out</h2>
               <p className="p">
-                Take control of your inventory and streamline operations with InventoryPro’s powerful tools.
+                Create high-quality documents, streamline workflows, and collaborate with ease using Software innovative tools.
               </p>
             </motion.div>
             <div className="benefits-grid">
@@ -258,35 +257,36 @@ export default function InventorySoftware() {
                 viewport={{ once: true }}
               >
                 <Image
-                  src="/img/inventory-benefits.png"
-                  alt="InventoryPro Benefits"
-                  width={880}
-                  height={450}
+                  src="/img/latex-benefits.png"
+                  alt="LaTeXPro Benefits"
+                  width={900}
+                  height={500}
                   style={{ objectFit: "contain" }}
                   className="benefits-img"
+                  onError={() => console.error("Failed to load benefits image")}
                 />
               </motion.div>
               <div className="benefits-list">
                 {[
                   {
-                    title: "Reduce Stockouts",
-                    desc: "Automated alerts ensure you never run out of stock.",
+                    title: "Boost Productivity",
+                    desc: "Automate repetitive tasks to focus on content creation.",
                   },
                   {
-                    title: "Optimize Fulfillment",
-                    desc: "Speed up order processing with smart automation.",
+                    title: "Ensure Quality",
+                    desc: "Produce polished, professional documents every time.",
                   },
                   {
-                    title: "Simplify Management",
-                    desc: "Control inventory from one intuitive platform.",
+                    title: "Stay Organized",
+                    desc: "Manage projects with integrated version control.",
                   },
                   {
-                    title: "Improve Accuracy",
-                    desc: "Minimize errors with barcode scanning and real-time updates.",
+                    title: "Collaborate Easily",
+                    desc: "Work with teams in real time, anywhere.",
                   },
                   {
-                    title: "Scale Seamlessly",
-                    desc: "Grow your operations with tools that adapt to your needs.",
+                    title: "Scale Flexibly",
+                    desc: "Adapt tools to meet your project’s evolving needs.",
                   },
                 ].map((benefit, index) => (
                   <motion.div
@@ -320,9 +320,9 @@ export default function InventorySoftware() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h2>Experience InventoryPro in Action</h2>
+              <h2>Discover LaTeXPro in Action</h2>
               <p className="p">
-                Explore the power of InventoryPro’s inventory software through an interactive demo. See how our smart dashboard, stock management, and order insights can optimize your operations.
+                Experience LaTeXPro’s editor, templates, and collaboration tools through an interactive demo.
               </p>
             </motion.div>
             <motion.div
@@ -333,7 +333,6 @@ export default function InventorySoftware() {
               viewport={{ once: true }}
             >
               <div className="demo-grid">
-                {/* Carousel */}
                 <motion.div
                   className="demo-carousel"
                   variants={slideLeft}
@@ -352,8 +351,8 @@ export default function InventorySoftware() {
                       <Image
                         src={slides[currentSlide].src}
                         alt={slides[currentSlide].alt}
-                        width={600}
-                        height={400}
+                        width={650}
+                        height={450}
                         style={{ objectFit: "cover" }}
                         className="demo-img"
                         onError={() => console.error(`Failed to load image: ${slides[currentSlide].src}`)}
@@ -374,7 +373,6 @@ export default function InventorySoftware() {
                   </div>
                 </motion.div>
 
-                {/* Tabs and Content */}
                 <motion.div
                   className="demo-content"
                   variants={slideRight}
@@ -418,14 +416,14 @@ export default function InventorySoftware() {
                     animate="animate"
                   >
                     {[
-                      "Efficient inventory control with a user-friendly interface",
-                      "Real-time insights to optimize stock levels",
-                      "Seamless integration with your existing systems",
+                      "Powerful LaTeX editing with ease",
+                      "Customizable templates for any project",
+                      "Seamless real-time collaboration",
                     ].map((benefit, index) => (
                       <motion.div
                         key={index}
                         variants={fadeIn}
-                        className="benefit-item"
+                        className="-fn-item"
                       >
                         <IoMdCheckmarkCircleOutline className="check-icon" />
                         <p>{benefit}</p>
@@ -435,14 +433,13 @@ export default function InventorySoftware() {
                 </motion.div>
               </div>
 
-              {/* Floating Request Demo Button */}
               <Link href="/request-demo" legacyBehavior>
                 <motion.a
                   className="btn btn-primary demo-request-btn"
                   onClick={() => console.log("Request Demo clicked")}
                   whileHover={{
                     scale: 1.1,
-                    boxShadow: "0 8px 20px rgba(245, 158, 11, 0.4)",
+                    boxShadow: "0 8px 20px rgba(45, 212, 191, 0.4)",
                   }}
                   whileTap={{ scale: 0.95 }}
                   animate={{ scale: [1, 1.03, 1] }}
@@ -453,7 +450,6 @@ export default function InventorySoftware() {
               </Link>
             </motion.div>
 
-            {/* FAQ Snippet */}
             <motion.div
               className="demo-faq"
               variants={fadeIn}
@@ -463,15 +459,15 @@ export default function InventorySoftware() {
             >
               <h4>Frequently Asked Questions</h4>
               <div className="faq-item">
-                <h5>Is InventoryPro compatible with mobile devices?</h5>
+                <h5>Is LaTeXPro beginner-friendly?</h5>
                 <p>
-                  Yes, InventoryPro offers full mobile compatibility, allowing you to manage stock and orders from anywhere using our mobile app.
+                  Yes, our editor and templates are designed to be accessible for beginners and experts alike.
                 </p>
               </div>
               <div className="faq-item">
-                <h5>Can I integrate InventoryPro with my existing systems?</h5>
+                <h5>Can I integrate LaTeXPro with other tools?</h5>
                 <p>
-                  Absolutely. InventoryPro supports seamless integrations with e-commerce, POS, and accounting platforms.
+                  Absolutely, LaTeXPro supports integrations with publishing and collaboration platforms.
                 </p>
               </div>
             </motion.div>
@@ -488,28 +484,25 @@ export default function InventorySoftware() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h2>Voices from Inventory Experts</h2>
-              <p>Hear from businesses thriving with InventoryPro’s inventory solutions.</p>
+              <h2>Trusted by LaTeX Users</h2>
+              <p>Hear from professionals who rely on LaTeXPro for their document needs.</p>
             </motion.div>
             <div className="testimonials-grid">
               {[
                 {
-                  name: "Mark Jensen",
-                  role: "Warehouse Manager",
-                  quote:
-                    "InventoryPro’s real-time tracking saved us from countless stockouts. It’s a must-have for our warehouse!",
+                  name: "Dr. Anna Lee",
+                  role: "Academic Researcher",
+                  quote: "LaTeXPro’s editor has transformed how I prepare my research papers.",
+                },
+                {
+                  name: "Michael Brown",
+                  role: "Technical Writer",
+                  quote: "The template library saves me hours on every project.",
                 },
                 {
                   name: "Priya Sharma",
-                  role: "E-commerce Owner",
-                  quote:
-                    "The barcode scanning and integrations make inventory management so easy. Orders are fulfilled faster now.",
-                },
-                {
-                  name: "Liam Chen",
-                  role: "Supply Chain Director",
-                  quote:
-                    "InventoryPro’s analytics help us optimize our supply chain. It’s transformed how we operate across locations.",
+                  role: "Graduate Student",
+                  quote: "Collaborating on my thesis with my team is seamless with LaTeXPro.",
                 },
               ].map((testimonial, index) => (
                 <motion.div
@@ -545,8 +538,8 @@ export default function InventorySoftware() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h2>Choose Your Inventory Plan</h2>
-              <p>Flexible pricing to optimize your inventory management.</p>
+              <h2>Choose Your LaTeX Plan</h2>
+              <p>Flexible pricing to suit your document creation and collaboration needs.</p>
             </motion.div>
             <div className="pricing-grid">
               {[
@@ -554,37 +547,37 @@ export default function InventorySoftware() {
                   name: "Starter",
                   price: "$29",
                   features: [
-                    "1 Warehouse",
-                    "Basic Stock Tracking",
-                    "Standard Reports",
+                    "Up to 5 Users",
+                    "Basic Editor",
+                    "Standard Templates",
                     "Email Support",
                   ],
-                  link: "/pricing/starter",
+                  link: "contact",
                   cta: "Get Started",
                 },
                 {
-                  name: "Growth",
+                  name: "Professional",
                   price: "$79",
                   features: [
-                    "Up to 5 Warehouses",
-                    "Automated Reordering",
-                    "Barcode Scanning",
-                    "Integrations",
+                    "Up to 25 Users",
+                    "Advanced Editor",
+                    "Full Template Library",
+                    "Collaboration Tools",
                     "Priority Support",
                   ],
-                  link: "/pricing/growth",
-                  cta: "Choose Growth",
+                  link: "contact",
+                  cta: "Choose Professional",
                   popular: true,
                 },
                 {
                   name: "Enterprise",
                   price: "Custom",
                   features: [
-                    "Unlimited Warehouses",
-                    "All Growth Features",
-                    "Dedicated Manager",
-                    "Custom Integrations",
-                    "24/7 Support",
+                    "Unlimited Users",
+                    "All Professional Features",
+                    "Custom Templates",
+                    "Dedicated Support",
+                    "API Access",
                   ],
                   link: "/contact",
                   cta: "Contact Us",
@@ -642,16 +635,16 @@ export default function InventorySoftware() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h2>Ready to Optimize Your Inventory?</h2>
+              <h2>Ready to Create with LaTeXPro?</h2>
               <p>
-                Start your free trial and let InventoryPro bring efficiency to your stock management and spark to your operations.
+                Start your free trial and experience how LaTeXPro simplifies document creation and collaboration.
               </p>
               <motion.a
                 href="/signup"
-                className="btn btn-primary cta-btn"
+                className="btn cta-btn"
                 whileHover={{
                   scale: 1.1,
-                  boxShadow: "0 8px 20px rgba(245, 158, 11, 0.3)",
+                  boxShadow: "0 8px 20px rgba(255, 255, 255, 0.3)",
                 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -661,8 +654,6 @@ export default function InventorySoftware() {
           </div>
         </section>
       </div>
-
-
     </>
   );
 }

@@ -2,6 +2,8 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { GoArrowUpRight } from "react-icons/go";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Projects() {
   const router = useRouter();
@@ -12,43 +14,43 @@ export default function Projects() {
       id: "/projects/accounting_software",
       title: "Accounting Software",
       description: "Precision-driven tools for seamless financial management.",
-      image: "/img/ex1.png", // Replace with actual image URL
+      image: "/img/img4.jpg",
     },
     {
-      id: "/projects/inventory-software",
+      id: "/projects/inventory_software",
       title: "Inventory Software",
       description: "Real-time stock tracking for ultimate control.",
-      image: "/img/ex2.png", // Replace with actual image UR
+      image: "/img/img4.jpg",
     },
     {
-      id: "/projects/manufacturing-software",
+      id: "/projects/manufacturing_software",
       title: "Manufacturing Software",
       description: "Advanced solutions to optimize production workflows.",
-      image: "/img/ex3.png", // Replace with actual image URL
+      image: "/img/img4.jpg",
     },
     {
       id: "/projects/hr&payroll",
       title: "HR & Payroll",
       description: "Streamlined workforce and payroll management.",
-      image: "/img/ex4.png", // Replace with actual image URL
+      image: "/img/img4.jpg",
     },
     {
-      id: "/projects/ticketing-system",
+      id: "/projects/ticketing_system",
       title: "Ticketing System",
       description: "Efficient support with smart ticketing solutions.",
-      image: "/img/ex1.png", // Replace with actual image URL
+      image: "/img/img4.jpg",
     },
     {
-      id: "/projects/crm-software",
+      id: "/projects/crm_software",
       title: "CRM Software",
       description: "Enhance customer relationships with intelligent CRM.",
-      image: "/img/ex3.png", // Replace with actual image URL
+      image: "/img/img4.jpg",
     },
     {
-      id: "/projects/pos-software",
+      id: "/projects/pos_software",
       title: "POS Software",
       description: "Fast, reliable point-of-sale for modern retail.",
-      image: "/img/ex2.png", // Replace with actual image URL
+      image: "/img/img4.jpg",
     },
   ];
 
@@ -57,350 +59,148 @@ export default function Projects() {
     router.push(id);
   };
 
+  // Animation variants
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { delay: i * 0.2, duration: 0.6, ease: "easeOut" },
+    }),
+    hover: {
+      scale: 1.05,
+      boxShadow: "0 15px 30px rgba(59, 130, 246, 0.3)",
+      transition: { duration: 0.3 },
+    },
+  };
+
+  const heroVariants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
   return (
     <>
       <Head>
-        <title>Our Software </title>
+        <title>Our Software Solutions</title>
         <meta
           name="description"
-          content="Explore our tailored software solutions designed to meet your business needs. From Accounting to CRM, we provide modern tools for success."
+          content="Discover our cutting-edge software solutions tailored to elevate your business. From Accounting to CRM, we empower success with innovation."
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet"
+          crossOrigin="anonymous"
         />
       </Head>
-      <div className="projectpage min-h-screen bg-gray-50">
+
+      <div className="projectpage min-h-screen bg-gray-900 text-white">
         {/* Hero Section */}
-        <section className="projects bg-gradient-to-br from-purple-800 via-blue-700 to-indigo-800 text-white py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10"></div>
-          <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div className="project_titles text-center">
-              <h2 className="text-4xl md:text-5xl font-extrabold mb-6 animate-fade-in-down">
-                Explore Our Software Solutions
+        <section className="projects relative bg-gradient-to-br from-indigo-900 via-purple-800 to-blue-700 py-32 overflow-hidden">
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 animate-pulse"></div>
+          <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <motion.div
+              className="project_titles text-center"
+              variants={heroVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <h2 className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                Discover Our Software Solutions
               </h2>
-              <p className="text-lg md:text-xl text-blue-200 max-w-2xl mx-auto animate-fade-in-up">
-                From Accounting to CRM, we offer tailored software solutions to
-                meet your business needs.
+              <p className="text-xl md:text-2xl text-blue-200 max-w-3xl mx-auto">
+                Empower your business with our innovative, tailored software for accounting, CRM, manufacturing, and more.
               </p>
-            </div>
-          </div>
-          <div className="headers">
-            <span className="banner-text">
-              Best Software development company in Bangladesh
-            </span>
-            <Link href="contact">
-              <span className="demo">Book for Demo</span>
-            </Link>
+            </motion.div>
           </div>
         </section>
+
+        {/* Header Banner */}
+        <motion.div
+          className="headers bg-gradient-to-r from-blue-600 to-purple-600 py-4 flex justify-between items-center px-8"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <span className="banner-text text-lg font-semibold">
+            Leading Software Development Company in Bangladesh
+          </span>
+          <Link href="/contact" legacyBehavior>
+            <motion.a
+              className="demo bg-white text-blue-700 font-semibold py-2 px-6 rounded-full hover:bg-blue-100"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Book a Demo
+            </motion.a>
+          </Link>
+        </motion.div>
 
         {/* Services Section */}
-        <section className="services py-16 bg-white">
+        <section className="services py-20 bg-gray-900">
           <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+            >
               {services.map((service, index) => (
-                <div
+                <motion.div
                   key={service.id}
-                  className="services_item group cursor-pointer p-6 rounded-lg relative overflow-hidden"
+                  className="services_item group cursor-pointer bg-gray-800 p-6 rounded-2xl relative overflow-hidden"
+                  variants={cardVariants}
+                  custom={index}
+                  whileHover="hover"
                   onClick={() => handleServiceClick(service.id)}
-                  style={{ animationDelay: `${index * 0.2}s` }}
                 >
-                  <div className="image-container mb-4 relative">
-                    <img
+                  <div className="image-container mb-6 relative">
+                    <Image
                       src={service.image}
                       alt={service.title}
-                      className="w-full h-40 object-cover rounded-md"
+                      width={400}
+                      height={200}
+                      className="w-full h-48 object-cover rounded-lg transition-transform duration-500 group-hover:scale-110"
                     />
-                    <div className="ripple-effect"></div>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-t from-blue-500/30 to-transparent opacity-0 group-hover:opacity-100"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
                   </div>
                   <div className="content relative z-10">
-                    <h1 className="text-2xl font-bold mb-2">{service.title}</h1>
-                    <p className="text-sm description">
-                      {service.description}
-                      {service.description}
-                      {service.description}
-                      {service.description}
-                    </p>
-                    <div className="icon mt-4 text-2xl">
+                    <h1 className="text-2xl font-bold mb-3 text-blue-300 group-hover:text-blue-400 transition-colors">
+                      {service.title}
+                    </h1>
+                    <p className="text-sm text-gray-300 mb-4">{service.description}</p>
+                    <motion.div
+                      className="icon text-2xl text-blue-400"
+                      whileHover={{ x: 10 }}
+                      transition={{ duration: 0.3 }}
+                    >
                       <GoArrowUpRight />
-                    </div>
+                    </motion.div>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
-
-          <style jsx>{`
-            /* Services Section */
-            .services {
-              background: linear-gradient(135deg, #0f172a, #1e293b);
-              padding: 4rem 1rem;
-              position: relative;
-              overflow: hidden;
-            }
-
-            .services::before {
-              content: "";
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background: linear-gradient(45deg, #0ea5e9, #8b5cf6);
-              opacity: 0.1;
-              animation: wave 15s ease-in-out infinite;
-            }
-
-            /* Service Item */
-            .services_item {
-              background: rgba(255, 255, 255, 0.1);
-              backdrop-filter: blur(10px);
-              border: 1px solid rgba(255, 255, 255, 0.2);
-              box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-              border-radius: 16px;
-              transition: transform 0.5s ease, box-shadow 0.5s ease,
-                border-color 0.5s ease;
-              position: relative;
-              opacity: 0;
-              animation: scaleIn 0.8s ease forwards;
-              transform-style: preserve-3d;
-              perspective: 1000px;
-            }
-
-            .services_item:hover {
-              transform: translateY(-10px) translateZ(30px) rotateX(3deg)
-                rotateY(3deg);
-              box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-              border-color: #0ea5e9;
-            }
-
-            .services_item::before {
-              content: "";
-              position: absolute;
-              inset: 0;
-              border-radius: 16px;
-              padding: 2px;
-              background: linear-gradient(45deg, #0ea5e9, #8b5cf6);
-              -webkit-mask: linear-gradient(#fff 0 0) content-box,
-                linear-gradient(#fff 0 0);
-              -webkit-mask-composite: xor;
-              mask-composite: exclude;
-              opacity: 0;
-              transition: opacity 0.5s ease;
-            }
-
-            .services_item:hover::before {
-              opacity: 1;
-            }
-
-            /* Image Container */
-            .image-container {
-              position: relative;
-              overflow: hidden;
-              border-radius: 12px;
-            }
-
-            .image-container img {
-              transition: transform 0.5s ease, filter 0.5s ease;
-            }
-
-            .services_item:hover img {
-              transform: scale(1.1) rotate(2deg);
-              filter: brightness(1.3);
-            }
-
-            /* Ripple Effect on Hover */
-            .ripple-effect {
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              width: 0;
-              height: 0;
-              background: rgba(14, 165, 233, 0.3);
-              border-radius: 50%;
-              transform: translate(-50%, -50%);
-              pointer-events: none;
-              transition: width 0.6s ease, height 0.6s ease;
-            }
-
-            .services_item:hover .ripple-effect {
-              width: 200%;
-              height: 200%;
-            }
-
-            /* Content */
-            .content h1 {
-              font-size: 1.5rem;
-              font-weight: 700;
-              background: linear-gradient(45deg, #0ea5e9, #8b5cf6);
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-              transition: transform 0.3s ease;
-            }
-
-            .services_item:hover .content h1 {
-              transform: translateY(-5px);
-            }
-
-            .content .description {
-              color: #d1d5db;
-              line-height: 1.5;
-              font-size: 0.875rem;
-              margin-bottom: 1rem;
-              opacity: 0;
-              transform: translateY(10px);
-              transition: opacity 0.5s ease, transform 0.5s ease;
-            }
-
-            .services_item:hover .description {
-              opacity: 1;
-              transform: translateY(0);
-            }
-
-            /* Icon */
-            .icon {
-              display: inline-flex;
-              color: #c433ff;
-              transition: transform 0.5s ease, color 0.3s ease;
-              position: relative;
-            }
-
-            .services_item:hover .icon {
-              color: #ffffff;
-              animation: pulse 1.5s ease-in-out infinite;
-            }
-
-            .icon::after {
-              content: "";
-              position: absolute;
-              bottom: -10px;
-              left: 50%;
-              width: 2px;
-              height: 0;
-              background: linear-gradient(to bottom, #c433ff, transparent);
-              transform: translateX(-50%);
-              transition: height 0.5s ease;
-            }
-
-            .services_item:hover .icon::after {
-              height: 20px;
-            }
-
-            /* Animations */
-            @keyframes scaleIn {
-              0% {
-                opacity: 0;
-                transform: scale(0.9);
-              }
-              100% {
-                opacity: 1;
-                transform: scale(1);
-              }
-            }
-
-            @keyframes wave {
-              0%,
-              100% {
-                transform: translateY(0);
-              }
-              50% {
-                transform: translateY(-10px);
-              }
-            }
-
-            @keyframes pulse {
-              0%,
-              100% {
-                transform: scale(1);
-              }
-              50% {
-                transform: scale(1.2);
-              }
-            }
-
-            /* Responsive Design */
-            @media (max-width: 1024px) {
-              .services_item {
-                padding: 1.25rem;
-              }
-
-              .content h1 {
-                font-size: 1.25rem;
-              }
-
-              .content .description {
-                font-size: 0.8rem;
-              }
-
-              .image-container img {
-                height: 150px;
-              }
-            }
-
-            @media (max-width: 768px) {
-              .services {
-                padding: 3rem 0.5rem;
-              }
-
-              .services_item {
-                padding: 1rem;
-              }
-
-              .content h1 {
-                font-size: 1.125rem;
-              }
-
-              .content .description {
-                font-size: 0.75rem;
-                opacity: 1; /* Always visible on mobile */
-                transform: translateY(0);
-              }
-
-              .image-container img {
-                height: 120px;
-              }
-
-              .services_item:hover {
-                transform: translateY(-5px); /* Reduced for mobile */
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-              }
-
-              .services_item:hover img {
-                transform: scale(1.05); /* Reduced scale for mobile */
-              }
-
-              .services_item:hover .ripple-effect {
-                width: 150%;
-                height: 150%;
-              }
-            }
-
-            @media (max-width: 480px) {
-              .services_item {
-                padding: 0.75rem;
-              }
-
-              .content h1 {
-                font-size: 1rem;
-              }
-
-              .content .description {
-                font-size: 0.7rem;
-              }
-
-              .image-container img {
-                height: 100px;
-              }
-
-              .icon {
-                font-size: 1.5rem;
-              }
-
-              .services_item:hover .ripple-effect {
-                width: 120%;
-                height: 120%;
-              }
-            }
-          `}</style>
         </section>
       </div>
+
+
     </>
   );
 }
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};

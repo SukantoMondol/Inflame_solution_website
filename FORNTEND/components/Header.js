@@ -9,36 +9,29 @@ import { FiChevronDown } from "react-icons/fi";
 export default function Header() {
   const [activeLink, setActiveLink] = useState("");
   const [darkMode, setDarkMode] = useState(false);
+  const [mobile, setMobile] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState({ services: false, projects: false });
+
+  const router = useRouter();
+
+  useEffect(() => {
+    setActiveLink(router.pathname);
+  }, [router.pathname]);
 
   useEffect(() => {
     const isDarkMode = localStorage.getItem("darkMode") === "true";
     setDarkMode(isDarkMode);
-    if (isDarkMode) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
+    document.body.classList.toggle("dark", isDarkMode);
   }, []);
 
   useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
+    document.body.classList.toggle("dark", darkMode);
     localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
   const toggleDarkMode = () => {
-    setDarkMode((prevMode) => {
-      const newMode = !prevMode;
-      localStorage.setItem("darkMode", newMode);
-      return newMode;
-    });
+    setDarkMode((prevMode) => !prevMode);
   };
-
-  const router = useRouter();
-  const [mobile, setMobile] = useState(false);
 
   const handleMobileOpen = () => {
     setMobile(!mobile);
@@ -46,6 +39,14 @@ export default function Header() {
 
   const handleMobileClose = () => {
     setMobile(false);
+    setDropdownOpen({ services: false, projects: false });
+  };
+
+  const toggleDropdown = (menu) => {
+    setDropdownOpen((prev) => ({
+      ...prev,
+      [menu]: !prev[menu],
+    }));
   };
 
   return (
@@ -53,7 +54,7 @@ export default function Header() {
       <nav className="container flex flex-sb">
         <div className="logo flex gap-2">
           <Link href="/">
-            <img src="/img/inflame logo 1.png" alt="" />
+            <img src="/img/inflame logo 1.png" alt="Inflame Solution Logo" />
           </Link>
         </div>
         <div className="navlist flex gap-2">
@@ -63,23 +64,28 @@ export default function Header() {
                 Home
               </Link>
             </li>
-            <li>
+            <li className="dropdown">
               <Link
                 href="/services"
                 className={activeLink === "/services" ? "active" : ""}
               >
-                Services
+                Services <FiChevronDown />
               </Link>
-
+              <div className="dropdown-content">
+                <Link href="/web_development">Web Design & Development</Link>
+                <Link href="/software_development">Software Development</Link>
+                <Link href="/creative_desing">Creative Design</Link>
+                <Link href="/organic_marketing">Organic Marketing</Link>
+                <Link href="/paid_marketing">Paid Marketing</Link>
+                <Link href="/products">Products</Link>
+              </div>
             </li>
             <li className="dropdown">
               <Link
                 href="/projects"
                 className={activeLink === "/projects" ? "active" : ""}
               >
-                Our Software
-                <FiChevronDown />
-
+                Our Software <FiChevronDown />
               </Link>
               <div className="dropdown-content">
                 <Link href="/projects/accounting_software">Accounting Software</Link>
@@ -125,7 +131,7 @@ export default function Header() {
         <div className={mobile ? "mobilenavlist active" : "mobilenavlist"}>
           <span onDoubleClick={handleMobileClose} className={mobile ? "active" : ""}></span>
           <div className="mobilelogo">
-            <img src="/img/logo.jpg" alt="logo" />
+            <img src="/img/logo.jpg" alt="Inflame Solution Logo" />
             <h2>Inflame Solution Ltd</h2>
           </div>
           <ul className="flex gap-1 flex-col flex-left mt-3" onClick={handleMobileClose}>
@@ -134,15 +140,38 @@ export default function Header() {
                 Home
               </Link>
             </li>
-            <li>
-              <Link href="/services" className={activeLink === "/services" ? "active" : ""}>
-                Services
-              </Link>
+            <li className={`dropdown ${dropdownOpen.services ? "active" : ""}`}>
+              <div onClick={() => toggleDropdown("services")} className="flex align-center gap-1">
+                <Link href="/services" className={activeLink === "/services" ? "active" : ""}>
+                  Services
+                </Link>
+                <FiChevronDown />
+              </div>
+              <div className="dropdown-content">
+                <Link href="/web_development">Web Design & Development</Link>
+                <Link href="/software_development">Software Development</Link>
+                <Link href="/creative_desing">Creative Design</Link>
+                <Link href="/organic_marketing">Organic Marketing</Link>
+                <Link href="/paid_marketing">Paid Marketing</Link>
+                <Link href="/products">Products</Link>
+              </div>
             </li>
-            <li>
-              <Link href="/projects" className={activeLink === "/projects" ? "active" : ""}>
-                Our Software
-              </Link>
+            <li className={`dropdown ${dropdownOpen.projects ? "active" : ""}`}>
+              <div onClick={() => toggleDropdown("projects")} className="flex align-center gap-1">
+                <Link href="/projects" className={activeLink === "/projects" ? "active" : ""}>
+                  Our Software
+                </Link>
+                <FiChevronDown />
+              </div>
+              <div className="dropdown-content">
+                <Link href="/projects/accounting_software">Accounting Software</Link>
+                <Link href="/projects/inventory_software">Inventory Software</Link>
+                <Link href="/projects/manufacturing_software">Manufacturing Software</Link>
+                <Link href="/projects/hr_payroll">HR & Payroll</Link>
+                <Link href="/projects/ticketing_system">Ticketing System</Link>
+                <Link href="/projects/crm_software">CRM Software</Link>
+                <Link href="/projects/pos_software">POS Software</Link>
+              </div>
             </li>
             <li>
               <Link href="/gallery" className={activeLink === "/gallery" ? "active" : ""}>

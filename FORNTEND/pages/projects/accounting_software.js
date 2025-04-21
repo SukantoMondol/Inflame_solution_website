@@ -1,17 +1,53 @@
+
 import Head from "next/head";
 import Link from "next/link";
-import {
-  IoMdCheckmarkCircleOutline,
-  IoIosAnalytics,
-  IoIosLock,
-} from "react-icons/io";
-import { FaChartLine, FaUsers, FaFileInvoiceDollar } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { IoMdCheckmarkCircleOutline, IoIosLock } from "react-icons/io";
+import { FaCashRegister, FaChartLine, FaGift, FaStar } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { redirect } from "next/dist/server/api-utils";
+import { FaUsers, FaPlug, FaMobileAlt } from "react-icons/fa";
+import { useState } from "react";
 
 export default function AccountingSoftware() {
-  // Animation variants
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [activeTab, setActiveTab] = useState("dashboard");
+
+  const slides = [
+    { src: "/img/2.jpg", alt: "AccountPro Dashboard" },
+    { src: "/img/1.jpg", alt: "Automated Invoicing" },
+    { src: "/img/3.jpg", alt: "Financial Reports" },
+  ];
+
+  const staggerContainer = {
+    initial: {},
+    animate: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const tabs = [
+    {
+      id: "dashboard",
+      title: "Intuitive Dashboard",
+      content:
+        "Access financial data, track expenses, and monitor cash flow with a user-friendly interface designed for clarity and efficiency.",
+    },
+    {
+      id: "invoicing",
+      title: "Automated Invoicing",
+      content:
+        "Create and send professional invoices in seconds. Automate recurring billing and track payments effortlessly.",
+    },
+    {
+      id: "reporting",
+      title: "Advanced Reporting",
+      content:
+        "Generate detailed financial reports, monitor profit margins, and ensure compliance with real-time insights.",
+    },
+  ];
+
   const fadeIn = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
@@ -39,10 +75,10 @@ export default function AccountingSoftware() {
   return (
     <>
       <Head>
-        <title>IntelliAccount - Smart Accounting Solutions</title>
+        <title>Accounting Solutions</title>
         <meta
           name="description"
-          content="Transform your business finances with IntelliAccount’s advanced automation, real-time analytics, and seamless collaboration tools."
+          content="Streamline your financial management with AccountPro’s intuitive dashboard, automated invoicing, and powerful reporting tools."
         />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -51,7 +87,7 @@ export default function AccountingSoftware() {
         />
       </Head>
 
-      <div className="accounting-software">
+      <div className="pos-software">
         {/* Hero Section */}
         <section className="hero">
           <div className="container">
@@ -61,12 +97,11 @@ export default function AccountingSoftware() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
             >
-              <h1>
-                Transform Your Finances with <span>IntelliAccount</span>
+              <h1 className="h1">
+                Simplify Finances with <span>AccountPro</span>
               </h1>
-              <p>
-                Empower your business with smart automation, real-time insights,
-                and seamless collaboration for effortless financial control.
+              <p className="p">
+                Transform your accounting with intuitive tools for invoicing, expense tracking, and financial reporting, designed to save time and boost accuracy.
               </p>
               <div className="hero-buttons">
                 <motion.a
@@ -78,17 +113,18 @@ export default function AccountingSoftware() {
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <button>Explore Features</button>
+                  Discover Features
                 </motion.a>
                 <motion.a
+                  href="#demo"
                   className="btn btn-secondary"
                   whileHover={{
                     scale: 1.1,
-                    boxShadow: "0 8px 20px rgba(45, 212, 191, 0.3)",
+                    boxShadow: "0 8px 20px rgba(244, 63, 94, 0.3)",
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <button>Watch Demo</button>
+                  Watch Demo
                 </motion.a>
               </div>
             </motion.div>
@@ -99,8 +135,8 @@ export default function AccountingSoftware() {
               animate="animate"
             >
               <Image
-                src="/img/img5.jpg"
-                alt="IntelliAccount Dashboard"
+                src="/img/img5.png"
+                alt="AccountPro Dashboard"
                 width={1000}
                 height={550}
                 style={{ objectFit: "contain" }}
@@ -109,6 +145,14 @@ export default function AccountingSoftware() {
             </motion.div>
           </div>
         </section>
+        <div className="headers">
+          <span className="banner-text">
+            Best Software development company in Bangladesh
+          </span>
+          <Link href="contact">
+            <span className="demo">Book for Demo</span>
+          </Link>
+        </div>
 
         {/* Features Section */}
         <section className="features section-padding" id="features">
@@ -120,43 +164,52 @@ export default function AccountingSoftware() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h2>Features That Drive Success</h2>
-              <p>
-                Discover the powerful tools that make IntelliAccount the
-                ultimate accounting solution.
+              <h2 className="h1">Features That Empower Your Finances</h2>
+              <p className="p">
+                Take control of your accounting with tools designed for efficiency, accuracy, and compliance.
               </p>
             </motion.div>
             <div className="feature-grid">
               {[
                 {
-                  icon: <FaFileInvoiceDollar />,
-                  title: "Smart Invoicing",
-                  desc: "Create stunning invoices with automated tracking and global currency support.",
-                },
-                {
-                  icon: <IoIosAnalytics />,
-                  title: "Real-Time Analytics",
-                  desc: "Gain instant insights with customizable dashboards and reports.",
+                  icon: <FaCashRegister />,
+                  title: "Automated Invoicing",
+                  desc: "Generate and send invoices instantly with automated reminders.",
                 },
                 {
                   icon: <FaChartLine />,
-                  title: "Budgeting & Forecasting",
-                  desc: "Plan confidently with precise budget tools and growth projections.",
+                  title: "Financial Reporting",
+                  desc: "Access real-time profit, loss, and balance sheet reports.",
                 },
                 {
                   icon: <FaUsers />,
-                  title: "Team Collaboration",
-                  desc: "Unite your team with shared access and secure permissions.",
+                  title: "Multi-User Access",
+                  desc: "Collaborate with your team with role-based permissions.",
+                },
+                {
+                  icon: <FaMobileAlt />,
+                  title: "Mobile Access",
+                  desc: "Manage finances on the go with our mobile app.",
+                },
+                {
+                  icon: <FaGift />,
+                  title: "Tax Compliance",
+                  desc: "Simplify tax calculations and filings with built-in tools.",
                 },
                 {
                   icon: <IoIosLock />,
-                  title: "Unmatched Security",
-                  desc: "Protect your data with enterprise-grade encryption.",
+                  title: "Secure Data",
+                  desc: "Protect your financial data with bank-grade encryption.",
                 },
                 {
-                  icon: <IoIosAnalytics />,
+                  icon: <FaPlug />,
                   title: "Seamless Integrations",
-                  desc: "Connect effortlessly with CRM, payroll, and e-commerce platforms.",
+                  desc: "Connect with payroll, CRM, and banking platforms.",
+                },
+                {
+                  icon: <FaStar />,
+                  title: "Expense Tracking",
+                  desc: "Monitor and categorize expenses effortlessly.",
                 },
               ].map((feature, index) => (
                 <motion.div
@@ -191,9 +244,9 @@ export default function AccountingSoftware() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h2>Why IntelliAccount Excels</h2>
-              <p>
-                Unlock transformative benefits for smarter financial management.
+              <h2 className="h1">Why AccountPro Stands Out</h2>
+              <p className="p">
+                Streamline your financial operations and focus on growing your business with AccountPro.
               </p>
             </motion.div>
             <div className="benefits-grid">
@@ -205,9 +258,9 @@ export default function AccountingSoftware() {
                 viewport={{ once: true }}
               >
                 <Image
-                  src="/img/ex1.png"
-                  alt="IntelliAccount Benefits"
-                  width={550}
+                  src="/img/img5.jpg"
+                  alt="AccountPro Benefits"
+                  width={880}
                   height={450}
                   style={{ objectFit: "contain" }}
                   className="benefits-img"
@@ -216,20 +269,24 @@ export default function AccountingSoftware() {
               <div className="benefits-list">
                 {[
                   {
-                    title: "Maximize Efficiency",
-                    desc: "Automate tasks to save time and reduce errors.",
+                    title: "Save Time",
+                    desc: "Automate repetitive tasks like invoicing and reconciliation.",
                   },
                   {
-                    title: "Empower Decisions",
-                    desc: "Leverage real-time data for strategic insights.",
+                    title: "Increase Accuracy",
+                    desc: "Reduce errors with smart data entry and validation.",
                   },
                   {
-                    title: "Boost Collaboration",
-                    desc: "Enable seamless teamwork with clear roles.",
+                    title: "Ensure Compliance",
+                    desc: "Stay audit-ready with accurate tax and financial records.",
                   },
                   {
-                    title: "Scale with Ease",
-                    desc: "Grow confidently with adaptable tools.",
+                    title: "Gain Insights",
+                    desc: "Make informed decisions with detailed financial analytics.",
+                  },
+                  {
+                    title: "Scale Confidently",
+                    desc: "Grow your business with tools that adapt to your needs.",
                   },
                 ].map((benefit, index) => (
                   <motion.div
@@ -254,7 +311,7 @@ export default function AccountingSoftware() {
         </section>
 
         {/* Demo Section */}
-        <section className="demo section-padding" id="demo">
+        <section className="demo-section section-padding" id="demo">
           <div className="container">
             <motion.div
               className="section-header"
@@ -263,42 +320,218 @@ export default function AccountingSoftware() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h2>IntelliAccount in Action</h2>
-              <p>
-                Experience our intuitive interface and powerful financial tools
-                firsthand.
+              <h2>Experience AccountPro in Action</h2>
+              <p className="p">
+                Explore the power of AccountPro’s accounting software through an interactive demo. See how our intuitive dashboard, automated invoicing, and advanced reporting can simplify your financial management.
               </p>
             </motion.div>
             <motion.div
-              className="demo-showcase"
+              className="demo-container"
               variants={slideUp}
               initial="initial"
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <Image
-                src="/img/3.jpg"
-                alt="IntelliAccount Demo"
-                width={1000}
-                height={550}
-                style={{ objectFit: "cover" }}
-                className="demo-img"
-              />
-              <motion.div
-                className="demo-info"
-                variants={slideRight}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-              >
-                <h4>Dynamic Dashboard</h4>
-                <p>
-                  Monitor cash flow, expenses, and revenue with real-time
-                  clarity.
-                </p>
-              </motion.div>
+              <div className="demo-grid">
+                {/* Carousel */}
+                <motion.div
+                  className="demo-carousel"
+                  variants={slideLeft}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: true }}
+                >
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentSlide}
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -50 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <Image
+                        src={slides[currentSlide].src}
+                        alt={slides[currentSlide].alt}
+                        width={600}
+                        height={400}
+                        style={{ objectFit: "cover" }}
+                        className="demo-img"
+                        onError={() => console.error(`Failed to load image: ${slides[currentSlide].src}`)}
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+                  <div className="carousel-controls">
+                    {slides.map((_, index) => (
+                      <button
+                        key={index}
+                        className={`carousel-dot ${index === currentSlide ? "active" : ""}`}
+                        onClick={() => {
+                          console.log("Carousel dot clicked:", index);
+                          setCurrentSlide(index);
+                        }}
+                      />
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* Tabs and Content */}
+                <motion.div
+                  className="demo-content"
+                  variants={slideRight}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: true }}
+                >
+                  <div className="demo-tabs">
+                    {tabs.map((tab) => (
+                      <motion.button
+                        key={tab.id}
+                        className={`demo-tab ${activeTab === tab.id ? "active" : ""}`}
+                        onClick={() => {
+                          console.log("Tab clicked:", tab.id);
+                          setActiveTab(tab.id);
+                        }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        {tab.title}
+                      </motion.button>
+                    ))}
+                  </div>
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeTab}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.3 }}
+                      className="demo-tab-content"
+                    >
+                      <h4>{tabs.find((tab) => tab.id === activeTab)?.title}</h4>
+                      <p>{tabs.find((tab) => tab.id === activeTab)?.content}</p>
+                    </motion.div>
+                  </AnimatePresence>
+                  <motion.div
+                    className="demo-benefits"
+                    variants={staggerContainer}
+                    initial="initial"
+                    animate="animate"
+                  >
+                    {[
+                      "Effortless financial management with a clean interface",
+                      "Real-time insights for better decision-making",
+                      "Seamless integration with your existing tools",
+                    ].map((benefit, index) => (
+                      <motion.div
+                        key={index}
+                        variants={fadeIn}
+                        className="benefit-item"
+                      >
+                        <IoMdCheckmarkCircleOutline className="check-icon" />
+                        <p>{benefit}</p>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </motion.div>
+              </div>
+
+              {/* Floating Request Demo Button */}
+              <Link href="/request-demo" legacyBehavior>
+                <motion.a
+                  className="btn btn-primary demo-request-btn"
+                  onClick={() => console.log("Request Demo clicked")}
+                  whileHover={{
+                    scale: 1.1,
+                    boxShadow: "0 8px 20px rgba(245, 158, 11, 0.4)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  animate={{ scale: [1, 1.03, 1] }}
+                  transition={{ repeat: Infinity, duration: 2 }}
+                >
+                  Request a Live Demo
+                </motion.a>
+              </Link>
             </motion.div>
+
+            {/* FAQ Snippet */}
+            <motion.div
+              className="demo-faq"
+              variants={fadeIn}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+            >
+              <h4>Frequently Asked Questions</h4>
+              <div className="faq-item">
+                <h5>Is AccountPro compatible with mobile devices?</h5>
+                <p>
+                  Yes, AccountPro offers full mobile compatibility, allowing you to manage finances from anywhere using our mobile app.
+                </p>
+              </div>
+              <div className="faq-item">
+                <h5>Can I integrate AccountPro with my existing systems?</h5>
+                <p>
+                  Absolutely. AccountPro supports seamless integrations with payroll, CRM, and banking platforms.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="testimonials section-padding" id="testimonials">
+          <div className="container">
+            <motion.div
+              className="section-header"
+              variants={fadeIn}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+            >
+              <h2>Voices from Financial Experts</h2>
+              <p>Hear from businesses thriving with AccountPro’s accounting solutions.</p>
+            </motion.div>
+            <div className="testimonials-grid">
+              {[
+                {
+                  name: "Emma Thompson",
+                  role: "Small Business Owner",
+                  quote:
+                    "AccountPro simplified our invoicing and tax prep. It’s a game-changer for our small team!",
+                },
+                {
+                  name: "Rahul Patel",
+                  role: "Freelance Accountant",
+                  quote:
+                    "The reporting tools are incredible. I can generate client reports in minutes, not hours.",
+                },
+                {
+                  name: "Clara Kim",
+                  role: "CFO, Retail Chain",
+                  quote:
+                    "AccountPro’s integrations and real-time data keep our finances on track across multiple locations.",
+                },
+              ].map((testimonial, index) => (
+                <motion.div
+                  key={index}
+                  className="testimonial-card"
+                  variants={slideUp}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.2 }}
+                  whileHover={{
+                    y: -10,
+                    boxShadow: "0 15px 30px rgba(0,0,0,0.15)",
+                  }}
+                >
+                  <FaStar className="star-icon" />
+                  <p className="quote">“{testimonial.quote}”</p>
+                  <h4>{testimonial.name}</h4>
+                  <p className="role">{testimonial.role}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -312,16 +545,16 @@ export default function AccountingSoftware() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h2>Choose Your Ideal Plan</h2>
-              <p>Flexible pricing designed to grow with your business.</p>
+              <h2>Choose Your Accounting Plan</h2>
+              <p>Flexible pricing to streamline your financial management.</p>
             </motion.div>
             <div className="pricing-grid">
               {[
                 {
                   name: "Starter",
-                  price: "$29",
+                  price: "$19",
                   features: [
-                    "Up to 5 Users",
+                    "1 User",
                     "Basic Invoicing",
                     "Standard Reports",
                     "Email Support",
@@ -331,11 +564,11 @@ export default function AccountingSoftware() {
                 },
                 {
                   name: "Growth",
-                  price: "$59",
+                  price: "$49",
                   features: [
-                    "Up to 20 Users",
-                    "Advanced Invoicing",
-                    "Real-Time Analytics",
+                    "Up to 5 Users",
+                    "Expense Tracking",
+                    "Tax Compliance Tools",
                     "Integrations",
                     "Priority Support",
                   ],
@@ -370,9 +603,7 @@ export default function AccountingSoftware() {
                     boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
                   }}
                 >
-                  {plan.popular && (
-                    <span className="popular-badge">Most Popular</span>
-                  )}
+                  {plan.popular && <span className="popular-badge">Most Popular</span>}
                   <h3>{plan.name}</h3>
                   <div className="price">
                     {plan.price}
@@ -388,9 +619,7 @@ export default function AccountingSoftware() {
                   </ul>
                   <Link href={plan.link} legacyBehavior>
                     <motion.a
-                      className={`btn ${
-                        plan.popular ? "btn-primary" : "btn-secondary"
-                      }`}
+                      className={`btn ${plan.popular ? "btn-primary" : "btn-secondary"}`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -413,10 +642,9 @@ export default function AccountingSoftware() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h2>Ready to Revolutionize Your Finances?</h2>
+              <h2>Ready to Simplify Your Accounting?</h2>
               <p>
-                Start your free trial and experience IntelliAccount’s power
-                today.
+                Start your free trial and let AccountPro bring clarity to your finances and spark to your business growth.
               </p>
               <motion.a
                 href="/signup"
@@ -433,504 +661,6 @@ export default function AccountingSoftware() {
           </div>
         </section>
       </div>
-
-      <style jsx>{`
-        .accounting-software {
-          font-family: "Inter", sans-serif;
-          color: #0d47a1; /* Deep Blue */
-          background: #f5f5f5; /* Light Grey */
-          overflow-x: hidden;
-        }
-
-        .container {
-          max-width: 1280px;
-          margin: 20px auto;
-          padding: 15px 40px;
-        }
-
-        .section-padding {
-          padding: 120px 0;
-        }
-
-        /* Hero Section */
-        .hero {
-          background: linear-gradient(
-            135deg,
-            #0d47a1 0%,
-            #00bcd4 100%
-          ); /* Deep Blue to Cyan */
-          color: #e0f7fa; /* Light Cyan */
-          padding: 140px 0 80px;
-          position: relative;
-          overflow: hidden;
-        }
-
-        .hero::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: radial-gradient(
-            circle at 20% 30%,
-            rgba(255, 255, 255, 0.2),
-            transparent 70%
-          );
-          animation: pulse 5s infinite ease-in-out;
-        }
-
-        .hero-content {
-          text-align: center;
-          max-width: 800px;
-          margin: 0 auto 60px;
-        }
-
-        .hero-content h1 {
-          font-size: 4.5rem;
-          font-weight: 800;
-          line-height: 1.2;
-          margin-bottom: 24px;
-        }
-
-        .hero-content h1 span {
-          background: linear-gradient(
-            90deg,
-            #ffb300,
-            #ffea00
-          ); /* Amber to Yellow */
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-        }
-
-        .hero-content p {
-          font-size: 2.5rem;
-          font-weight: 400;
-          line-height: 1.7;
-          margin-bottom: 32px;
-          max-width: 600px;
-          margin-left: auto;
-          margin-right: auto;
-          color: #b3e5fc; /* Light Blue */
-        }
-
-        .hero-buttons {
-          margin-top: 10px;
-          margin-bottom: 30px;
-          display: flex;
-          justify-content: center;
-          gap: 40px;
-        }
-
-        .hero-img {
-          border-radius: 10px;
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Features Section */
-        .features {
-          background: #80cbc4; /* Teal */
-        }
-
-        .section-header {
-          text-align: center;
-          margin-bottom: 64px;
-          margin-top: 40px;
-        }
-
-        .section-header h2 {
-          font-size: 3.2rem;
-          font-weight: 700;
-          color: #0d47a1; /* Deep Blue */
-          margin-bottom: 16px;
-          margin-top: 20px;
-        }
-
-        .section-header p {
-          font-size: 1.2rem;
-          color: #26a69a; /* Darker Teal */
-          max-width: 700px;
-          margin: 0 auto;
-          margin-top: 50px;
-          margin-bottom: 40px;
-        }
-
-        .feature-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 32px;
-          margin-top: 30px;
-        }
-
-        .feature-card {
-          padding: 32px;
-          border-radius: 16px;
-          text-align: center;
-          transition: all 0.2s ease;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .icon-wrapper {
-          font-size: 3rem;
-          color: #00bcd4; /* Cyan */
-          margin-bottom: 20px;
-          background: rgba(0, 188, 212, 0.1); /* Light Cyan */
-          width: 70px;
-          height: 70px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 14px;
-          margin-left: auto;
-          margin-right: auto;
-        }
-
-        .feature-card h3 {
-          font-size: 1.6rem;
-          font-weight: 600;
-          color: #0d47a1; /* Deep Blue */
-          margin-bottom: 12px;
-        }
-
-        .feature-card p {
-          font-size: 1rem;
-          color: #00897b; /* Dark Teal */
-          line-height: 1.6;
-        }
-
-        /* Benefits Section */
-        .benefits {
-          background: #c8e6c9; /* Light Green */
-        }
-
-        .benefits-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 64px;
-          align-items: center;
-        }
-
-        .benefits-img {
-          border-radius: 20px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Fixed typo 'yello' */
-        }
-
-        .benefits-list {
-          display: flex;
-          flex-direction: column;
-          gap: 32px;
-        }
-
-        .benefit-item {
-          display: flex;
-          align-items: flex-start;
-          gap: 16px;
-        }
-
-        .benefit-icon {
-          font-size: 2rem;
-          color: #ffb300; /* Amber */
-          margin-top: 4px;
-        }
-
-        .benefit-item h3 {
-          font-size: 1.4rem;
-          font-weight: 600;
-          color: #0d47a1; /* Deep Blue */
-          margin-bottom: 8px;
-        }
-
-        .benefit-item p {
-          font-size: 1rem;
-          color: #388e3c; /* Dark Green */
-          line-height: 1.6;
-        }
-
-        /* Demo Section */
-        .demo {
-          background: #80cbc4; /* Teal */
-        }
-
-        .demo-showcase {
-          position: relative;
-          max-width: 1000px;
-          margin: 0 auto;
-          border-radius: 20px;
-          overflow: hidden;
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .demo-img {
-          border-radius: 20px;
-        }
-
-        .demo-info {
-          position: absolute;
-          bottom: 24px;
-          right: 24px;
-          background: rgba(0, 188, 212, 0.85); /* Cyan */
-          backdrop-filter: blur(12px);
-          color: #e0f7fa; /* Light Cyan */
-          padding: 20px 28px;
-          border-radius: 12px;
-          max-width: 360px;
-          text-align: left;
-        }
-
-        .demo-info h4 {
-          font-size: 1.4rem;
-          font-weight: 600;
-          color: #0d47a1; /* Deep Blue */
-          margin-bottom: 12px;
-        }
-
-        .demo-info p {
-          font-size: 0.95rem;
-          color: #b3e5fc; /* Light Blue */
-          line-height: 1.5;
-        }
-
-        /* Pricing Section */
-        .pricing {
-          background: #f5f5f5; /* Light Grey */
-        }
-
-        .pricing-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          gap: 32px;
-          margin-top: 64px;
-        }
-
-        .pricing-card {
-          background: #e0f2f1; /* Light Teal */
-          padding: 40px;
-          border-radius: 16px;
-          text-align: center;
-          position: relative;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-          transition: all 0.3s ease;
-        }
-
-        .pricing-card.popular {
-          background: linear-gradient(
-            135deg,
-            #fffde7,
-            #b2ebf2
-          ); /* Light Yellow to Light Cyan */
-          border: 2px solid #ffb300; /* Amber */
-        }
-
-        .popular-badge {
-          position: absolute;
-          top: -16px;
-          left: 50%;
-          transform: translateX(-50%);
-          background: #ffb300; /* Amber */
-          color: #0d47a1; /* Deep Blue */
-          padding: 6px 24px;
-          border-radius: 20px;
-          font-size: 0.9rem;
-          font-weight: 600;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        .pricing-card h3 {
-          font-size: 1.8rem;
-          font-weight: 700;
-          color: #0d47a1; /* Deep Blue */
-          margin-bottom: 20px;
-        }
-
-        .price {
-          font-size: 2.8rem;
-          font-weight: 800;
-          color: #0d47a1; /* Deep Blue */
-          margin-bottom: 24px;
-        }
-
-        .price span {
-          font-size: 1.2rem;
-          font-weight: 400;
-          color: #26a69a; /* Darker Teal */
-        }
-
-        .pricing-card ul {
-          list-style: none;
-          margin: 0 0 32px;
-          padding: 0;
-          text-align: left;
-        }
-
-        .pricing-card li {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          font-size: 1rem;
-          color: #26a69a; /* Darker Teal */
-          margin-bottom: 16px;
-        }
-
-        .check-icon {
-          font-size: 1.4rem;
-          color: #00bcd4; /* Cyan */
-        }
-
-        /* CTA Section */
-        .cta {
-          background: linear-gradient(
-            135deg,
-            #0d47a1,
-            #00bcd4
-          ); /* Deep Blue to Cyan */
-          color: #e0f7fa; /* Light Cyan */
-        }
-
-        .cta-content {
-          text-align: center;
-          padding: 80px 40px;
-          border-radius: 20px;
-          background: rgba(255, 255, 255, 0.15);
-          backdrop-filter: blur(12px);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-          max-width: 800px;
-          margin: 0 auto;
-        }
-
-        .cta-content h2 {
-          font-size: 3rem;
-          font-weight: 800;
-          color: #fff; /* White */
-          margin-bottom: 20px;
-        }
-
-        .cta-content p {
-          font-size: 1.3rem;
-          font-weight: 300;
-          color: #b3e5fc; /* Light Blue */
-          margin-bottom: 32px;
-          line-height: 1.7;
-        }
-
-        .cta-btn {
-          padding: 16px 48px;
-          font-size: 1.2rem;
-          background: #ffb300; /* Amber */
-          color: #0d47a1; /* Deep Blue */
-        }
-
-        .cta-btn:hover {
-          background: #f57f17; /* Darker Amber */
-        }
-
-        /* Button Styles */
-        .btn {
-          display: inline-block;
-          padding: 14px 36px;
-          border-radius: 12px;
-          font-size: 1.1rem;
-          font-weight: 600;
-          text-decoration: none;
-          transition: all 0.2s ease;
-          text-align: center;
-        }
-
-        .btn-primary {
-          background: #ffb300; /* Amber */
-          color: #0d47a1; /* Deep Blue */
-        }
-
-        .btn-primary:hover {
-          background: #f57f17; /* Darker Amber */
-        }
-
-        .btn-secondary {
-          background: transparent;
-          color: #e0f7fa; /* Light Cyan */
-          border: 2px solid #ffb300; /* Amber */
-        }
-
-        .btn-secondary:hover {
-          background: #ffb300; /* Amber */
-          color: #0d47a1; /* Deep Blue */
-        }
-
-        /* Animations */
-        @keyframes pulse {
-          0% {
-            transform: scale(1);
-          }
-          50% {
-            transform: scale(1.1);
-          }
-          100% {
-            transform: scale(1);
-          }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-          .benefits-grid {
-            grid-template-columns: 1fr;
-            gap: 48px;
-          }
-
-          .hero-content h1 {
-            font-size: 3.5rem;
-          }
-        }
-
-        @media (max-width: 768px) {
-          .hero {
-            padding: 100px 0 60px;
-          }
-
-          .hero-content h1 {
-            font-size: 3rem;
-          }
-
-          .hero-content p {
-            font-size: 1.2rem;
-          }
-
-          .hero-buttons {
-            flex-direction: column;
-            gap: 16px;
-          }
-
-          .section-header h2 {
-            font-size: 2.5rem;
-          }
-
-          .feature-grid {
-            grid-template-columns: 1fr;
-          }
-
-          .pricing-grid {
-            grid-template-columns: 1fr;
-          }
-
-          .demo-info {
-            max-width: 90%;
-            bottom: 16px;
-            right: 16px;
-            left: 16px;
-            padding: 16px;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .cta-content h2 {
-            font-size: 2.2rem;
-          }
-
-          .cta-btn {
-            padding: 12px 32px;
-            font-size: 1rem;
-          }
-        }
-      `}</style>
     </>
   );
 }
