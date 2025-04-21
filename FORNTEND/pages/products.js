@@ -145,7 +145,7 @@ export default function CyberPulseDistributor() {
             Razer Gaming & Benio Lifestyle Electronics
           </span>
           <Link href="/contact">
-            <span className="demo">Request a Quote</span>
+            <span className="btn btn-secondary">Request a Quote</span>
           </Link>
         </div>
 

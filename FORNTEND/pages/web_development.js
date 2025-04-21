@@ -154,7 +154,7 @@ export default function WebDevelopment() {
             Leading Web Design & Development Company in Bangladesh
           </span>
           <Link href="/contact">
-            <span className="demo">Book a Consultation</span>
+            <span className="btn btn-secondary">Book a Consultation</span>
           </Link>
         </div>
 

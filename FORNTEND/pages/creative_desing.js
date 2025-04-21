@@ -150,7 +150,7 @@ export default function SoftwareDevelopment() {
             Pioneering Software Development Solutions
           </span>
           <Link href="/contact">
-            <span className="demo">Book a Demo</span>
+            <span className="btn btn-secondary">Book a Demo</span>
           </Link>
         </div>
 

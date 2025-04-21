@@ -5,14 +5,11 @@ import { useEffect } from "react";
 
 export default function About() {
   useEffect(() => {
-    // Intersection Observer for animations
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("fade-in");
-          } else {
-            entry.target.classList.remove("fade-in");
           }
         });
       },
@@ -21,6 +18,8 @@ export default function About() {
 
     const elements = document.querySelectorAll(".fade-element");
     elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -29,58 +28,62 @@ export default function About() {
         <title>About Us - Inflame Solutions</title>
         <meta
           name="description"
-          content="Discover the essence of Inflame Solutions, our mission, vision, values, and the brilliant team that drives our innovative IT solutions."
+          content="Explore Inflame Solutions' mission, vision, values, and the visionary team driving cutting-edge IT innovation."
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600&display=swap"
+          rel="stylesheet"
         />
       </Head>
 
       {/* Hero Section */}
-      <div className="about-hero">
-        <div className="container fade-element">
+      <section className="hero">
+        <div className="particles"></div>
+        <div className="hero-content ">
           <h1 className="hero-title">
-            Empowering Innovation, <br /> Building the Future
+            Igniting <span>Innovation</span>
           </h1>
           <p className="hero-subtitle">
-            At Inflame Solutions, we deliver cutting-edge IT solutions to power
-            tomorrow.
+            At Inflame Solutions, we pioneer transformative IT solutions to
+            shape a limitless future.
           </p>
-          <Link href="/contact">
-            <button className="cta-button">Get in Touch</button>
-          </Link>
+          <div className="hero-buttons">
+            <Link href="/contact">
+              <button className="cta-button">Get in Touch</button>
+            </Link>
+            <Link href="/services">
+              <button className="cta-button secondary">Our Services</button>
+            </Link>
+          </div>
         </div>
-        <div className="hero-image fade-element">
-          <Image
-            src="/img/1.jpg"
-            alt="About Us Hero"
-            width={600}
-            height={400}
-            priority
-          />
-        </div>
-      </div>
+      </section>
 
       {/* Mission, Vision, Values */}
       <section className="about-values">
         <div className="container">
-          <h2 className="section-title">What Drives Us</h2>
+          <h2 className="section-title">Our Core Drivers</h2>
+          <p className="section-subtitle">
+            The principles fueling our journey to redefine technology.
+          </p>
           <div className="values-grid">
             {[
               {
-                title: "Our Mission",
+                title: "Mission",
                 description:
-                  "To deliver innovative IT solutions that empower businesses to achieve their goals and drive global progress.",
-                icon: "/img/3.jpg",
+                  "Empowering businesses with innovative IT solutions for global impact.",
+                icon: "/img/1.jpg",
               },
               {
-                title: "Our Vision",
+                title: "Vision",
                 description:
-                  "To be the global leader in IT innovation, fostering growth through technology and collaboration.",
+                  "Leading the charge in IT innovation through collaboration and technology.",
                 icon: "/img/2.jpg",
               },
               {
-                title: "Our Values",
+                title: "Values",
                 description:
-                  "Integrity, innovation, teamwork, and customer focus are the pillars of our success.",
-                icon: "/img/img4.jpg",
+                  "Integrity, creativity, and teamwork power our success.",
+                icon: "/img/3.jpg",
               },
             ].map((value, index) => (
               <div key={index} className="value-card fade-element">
@@ -89,6 +92,7 @@ export default function About() {
                   alt={value.title}
                   width={80}
                   height={80}
+                  onError={(e) => (e.target.src = "/img/fallback.jpg")}
                 />
                 <h3>{value.title}</h3>
                 <p>{value.description}</p>
@@ -101,95 +105,49 @@ export default function About() {
       {/* Team Section */}
       <section className="about-team">
         <div className="container">
-          <h2 className="section-title">Meet Our Management </h2>
+          <h2 className="section-title">Our Visionaries</h2>
           <p className="section-subtitle">
-            Passionate professionals pushing boundaries in tech.
+            Meet the brilliant minds pushing the boundaries of tech.
           </p>
           <div className="team-grid">
             {[
               {
                 name: "John Doe",
                 position: "CEO & Founder",
-                image: "/img/ex1.png",
+                image: "/img/1.jpg",
                 description:
-                  "John leads with over 15 years of experience in IT innovation.",
+                  "John spearheads our mission with 15+ years of IT expertise.",
               },
               {
                 name: "Jane Smith",
                 position: "CTO",
-                image: "/img/ex2.png",
-                description: "Jane ensures our tech stays ahead of the curve.",
+                image: "/img/2.jpg",
+                description:
+                  "Jane drives our tech forward with visionary innovation.",
               },
               {
                 name: "Michael Brown",
                 position: "Lead Developer",
-                image: "/img/ex3.png",
-                description: "Michael crafts scalable, efficient products.",
+                image: "/img/3.jpg",
+                description:
+                  "Michael builds robust, scalable solutions with precision.",
               },
               {
                 name: "Emily Wilson",
                 position: "Creative Director",
-                image: "/img/ex4.png",
-                description: "Emily brings vision and design to every project.",
+                image: "/img/2.jpg",
+                description:
+                  "Emily infuses creativity into every project’s design.",
               },
             ].map((employee, index) => (
               <div key={index} className="team-member fade-element">
                 <Image
                   src={employee.image}
                   alt={employee.name}
-                  width={200}
-                  height={200}
+                  width={180}
+                  height={180}
                   className="team-image"
-                />
-                <h3>{employee.name}</h3>
-                <p className="team-position">{employee.position}</p>
-                <p className="team-description">{employee.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="about-team">
-        <div className="container">
-          <h2 className="section-title">Meet Our Brilliant Team</h2>
-          <p className="section-subtitle">
-            Passionate professionals pushing boundaries in tech.
-          </p>
-          <div className="team-grid">
-            {[
-              {
-                name: "John Doe",
-                position: "CEO & Founder",
-                image: "/img/ex1.png",
-                description:
-                  "John leads with over 15 years of experience in IT innovation.",
-              },
-              {
-                name: "Jane Smith",
-                position: "CTO",
-                image: "/img/ex2.png",
-                description: "Jane ensures our tech stays ahead of the curve.",
-              },
-              {
-                name: "Michael Brown",
-                position: "Lead Developer",
-                image: "/img/ex3.png",
-                description: "Michael crafts scalable, efficient products.",
-              },
-              {
-                name: "Emily Wilson",
-                position: "Creative Director",
-                image: "/img/ex4.png",
-                description: "Emily brings vision and design to every project.",
-              },
-            ].map((employee, index) => (
-              <div key={index} className="team-member fade-element">
-                <Image
-                  src={employee.image}
-                  alt={employee.name}
-                  width={200}
-                  height={200}
-                  className="team-image"
+                  onError={(e) => (e.target.src = "/img/fallback.jpg")}
                 />
                 <h3>{employee.name}</h3>
                 <p className="team-position">{employee.position}</p>
@@ -202,16 +160,15 @@ export default function About() {
 
       {/* Call to Action */}
       <section className="about-cta">
-        <div className="container">
-          <h2>Let’s Build Something Amazing Together</h2>
-          <p>Collaborate with us to turn your vision into digital success.</p>
+        <div className="particles"></div>
+        <div className="cta-content fade-element">
+          <h2>Let’s Create the Future</h2>
+          <p>Join us to transform your vision into groundbreaking reality.</p>
           <Link href="/contact">
             <button className="cta-button">Contact Us</button>
           </Link>
         </div>
       </section>
-
-
     </>
   );
 }

@@ -543,7 +543,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero_btn_box">
-            <Link href="/learn-more" className="learn_more_button">
+            <Link href="/contact" className="learn_more_button">
               Learn More
             </Link>
             <ul className="hero_social">
@@ -708,6 +708,7 @@ export default function Home() {
                 <div className="explore_website_card">
                   <img
                     src={`/img/ex${index + 1}.jpeg`}
+
                     alt={`Client Website ${index + 1}`}
                   />
                   <div className="flex flex_sb">

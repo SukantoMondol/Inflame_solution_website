@@ -97,11 +97,7 @@ export default function Header() {
                 <Link href="/projects/pos_software">POS Software</Link>
               </div>
             </li>
-            <li>
-              <Link href="/gallery" className={activeLink === "/gallery" ? "active" : ""}>
-                Portfolio
-              </Link>
-            </li>
+
             <li>
               <Link href="/shop" className={activeLink === "/shop" ? "active" : ""}>
                 About Us
@@ -110,6 +106,11 @@ export default function Header() {
             <li>
               <Link href="/blogs" className={activeLink === "/blogs" ? "active" : ""}>
                 Blog
+              </Link>
+            </li>
+            <li>
+              <Link href="/gallery" className={activeLink === "/gallery" ? "active" : ""}>
+                Careers
               </Link>
             </li>
             <li>

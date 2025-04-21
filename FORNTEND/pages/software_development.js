@@ -12,9 +12,9 @@ export default function LatexSoftware() {
   const [activeTab, setActiveTab] = useState("editor");
 
   const slides = [
-    { src: "/img/latex-editor.jpg", alt: "LaTeXPro Editor" },
-    { src: "/img/document-templates.jpg", alt: "Document Templates" },
-    { src: "/img/collaboration-tools.jpg", alt: "Collaboration Tools" },
+    { src: "/img/ex1.jpg", alt: "LaTeXPro Editor" },
+    { src: "/img/ex2.jpg", alt: "Document Templates" },
+    { src: "/img/ex3.jpg", alt: "Collaboration Tools" },
   ];
 
   const staggerContainer = {
@@ -149,7 +149,7 @@ export default function LatexSoftware() {
             Premier LaTeX Software Development Solutions
           </span>
           <Link href="/contact">
-            <span className="demo">Book a Demo</span>
+            <span className="btn btn-secondary">Book a Demo</span>
           </Link>
         </div>
 

@@ -150,7 +150,7 @@ export default function CRMSoftware() {
             Best Software development company in Bangladesh
           </span>
           <Link href="contact">
-            <span className="demo">Book for Demo</span>
+            <span className="btn btn-secondary">Book for Demo</span>
           </Link>
         </div>
 

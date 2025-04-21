@@ -152,7 +152,7 @@ export default function POSSoftware() {
             Best Software development company in Bangladesh
           </span>
           <Link href="contact">
-            <span className="demo">Book for Demo</span>
+            <span className="btn btn-secondary">Book for Demo</span>
           </Link>
         </div>
 
@@ -370,9 +370,8 @@ export default function POSSoftware() {
                     {slides.map((_, index) => (
                       <button
                         key={index}
-                        className={`carousel-dot ${
-                          index === currentSlide ? "active" : ""
-                        }`}
+                        className={`carousel-dot ${index === currentSlide ? "active" : ""
+                          }`}
                         onClick={() => setCurrentSlide(index)}
                       />
                     ))}
@@ -391,9 +390,8 @@ export default function POSSoftware() {
                     {tabs.map((tab) => (
                       <motion.button
                         key={tab.id}
-                        className={`demo-tab ${
-                          activeTab === tab.id ? "active" : ""
-                        }`}
+                        className={`demo-tab ${activeTab === tab.id ? "active" : ""
+                          }`}
                         onClick={() => setActiveTab(tab.id)}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -630,9 +628,8 @@ export default function POSSoftware() {
                   </ul>
                   <Link href={plan.link} legacyBehavior>
                     <motion.a
-                      className={`btn ${
-                        plan.popular ? "btn-primary" : "btn-secondary"
-                      }`}
+                      className={`btn ${plan.popular ? "btn-primary" : "btn-secondary"
+                        }`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
