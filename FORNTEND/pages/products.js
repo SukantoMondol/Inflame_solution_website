@@ -75,7 +75,7 @@ export default function CyberPulseDistributor() {
   return (
     <>
       <Head>
-        <title>CyberPulse Distributors - Razer & Benio Electronics</title>
+        <title>Razer & Benio Electronics</title>
         <meta
           name="description"
           content="CyberPulse Distributors brings you Razer’s gaming peripherals and Benio’s lifestyle electronics, including mice, keyboards, headsets, laptops, smart watches, and earbuds."

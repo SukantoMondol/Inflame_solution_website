@@ -12,9 +12,9 @@ export default function LatexSoftware() {
   const [activeTab, setActiveTab] = useState("editor");
 
   const slides = [
-    { src: "/img/ex1.jpg", alt: "LaTeXPro Editor" },
-    { src: "/img/ex2.jpg", alt: "Document Templates" },
-    { src: "/img/ex3.jpg", alt: "Collaboration Tools" },
+    { src: "/img/img1.gif", alt: "LaTeXPro Editor" },
+    { src: "/img/3d.png.gif", alt: "Document Templates" },
+    { src: "/img/3d.png.gif", alt: "Collaboration Tools" },
   ];
 
   const staggerContainer = {
@@ -133,7 +133,7 @@ export default function LatexSoftware() {
               animate="animate"
             >
               <Image
-                src="/img/latex-hero.png"
+                src="/img/3.jpg"
                 alt="LaTeXPro Dashboard"
                 width={1100}
                 height={600}
@@ -257,7 +257,7 @@ export default function LatexSoftware() {
                 viewport={{ once: true }}
               >
                 <Image
-                  src="/img/latex-benefits.png"
+                  src="/img/971.jpg"
                   alt="LaTeXPro Benefits"
                   width={900}
                   height={500}

@@ -12,7 +12,7 @@ export default function Careers() {
   const [activeTab, setActiveTab] = useState("culture");
 
   const slides = [
-    { src: "/img/careers_slide1.jpg", alt: "Team Collaboration" },
+    { src: "/img/img2.gif", alt: "Team Collaboration" },
     { src: "/img/careers_slide2.jpg", alt: "Innovative Workspace" },
     { src: "/img/careers_slide3.jpg", alt: "Career Growth" },
   ];
@@ -305,7 +305,7 @@ export default function Careers() {
                 viewport={{ once: true }}
               >
                 <Image
-                  src="/img/careers_benefits.svg"
+                  src="/img/img1.gif"
                   alt="Career Benefits"
                   width={600}
                   height={400}
@@ -574,11 +574,11 @@ export default function Careers() {
           </div>
         </section>
 
-        {/* Career Paths Section */}
+        {/*Career Paths Section */}
         <section className="pricing section-padding bg-gray-100 dark:bg-gray-800" id="career-paths">
           <div className="container mx-auto px-4">
             <motion.div
-              className="section-header text-center"
+              className="section-header"
               variants={fadeIn}
               initial="initial"
               whileInView="animate"
@@ -587,7 +587,7 @@ export default function Careers() {
               <h2 className="h1">Choose Your Career Path</h2>
               <p className="p">Explore roles that match your skills and ambitions.</p>
             </motion.div>
-            <div className="pricing-grid grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="pricing-grid ">
               {[
                 {
                   name: "Junior",

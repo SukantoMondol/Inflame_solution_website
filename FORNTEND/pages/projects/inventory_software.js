@@ -13,7 +13,7 @@ export default function InventorySoftware() {
   const [activeTab, setActiveTab] = useState("dashboard");
 
   const slides = [
-    { src: "/img/inventory-dashboard.jpg", alt: "InventoryPro Dashboard" },
+    { src: "/img/img3.gif", alt: "InventoryPro Dashboard" },
     { src: "/img/stock-tracking.jpg", alt: "Stock Management" },
     { src: "/img/order-insights.jpg", alt: "Order Insights" },
   ];
@@ -258,7 +258,7 @@ export default function InventorySoftware() {
                 viewport={{ once: true }}
               >
                 <Image
-                  src="/img/inventory-benefits.png"
+                  src="/img/img3.gif"
                   alt="InventoryPro Benefits"
                   width={880}
                   height={450}

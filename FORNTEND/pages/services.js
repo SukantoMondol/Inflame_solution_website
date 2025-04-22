@@ -18,15 +18,16 @@ export default function Services() {
   const services = [
     {
       id: 1,
-      title: "Web Design & Development",
-      icon: "/img/webdesing.png",
+      title: "Web Development",
+      icon: "/img/software.png",
       description:
-        "Craft stunning, responsive websites with optimal performance and user experience, tailored to your business needs.",
+        "Inflame Solution Are Provide very good in web development offering services, inflame offer reliable web development services to generate the remarkable results which your business need.",
       features: [
-        "Fast load times",
-        "Responsive design",
-        "SEO optimization",
-        "Regular updates & maintenance",
+        "Performance & Load Time",
+        "Reusable",
+        "Responsiveness",
+        "Quality assurance and testing",
+        "Quality maintenance, update, and bug fixes",
       ],
       link: "/web_development",
     },
@@ -35,12 +36,13 @@ export default function Services() {
       title: "Software Development",
       icon: "/img/software.png",
       description:
-        "Build robust, scalable software solutions to streamline your operations and drive business growth.",
+        "Inflame Solution provides robust software development services to streamline operations and achieve your business goals.",
       features: [
-        "Custom software solutions",
-        "Cloud integration",
-        "Quality assurance",
-        "Ongoing support",
+        "Performance & Load Time",
+        "Reusable",
+        "Responsiveness",
+        "Quality assurance and testing",
+        "Quality maintenance, update, and bug fixes",
       ],
       link: "/software_development",
     },
@@ -49,54 +51,58 @@ export default function Services() {
       title: "Creative Design",
       icon: "/img/creative.png",
       description:
-        "Create visually captivating designs for branding, UI/UX, and marketing materials to elevate your brand.",
+        "Inflame Solution delivers creative design services to elevate your brand with stunning visuals and user experiences.",
       features: [
-        "Unique branding",
-        "UI/UX design",
-        "Graphic design",
-        "Prototyping",
+        "Performance & Load Time",
+        "Reusable",
+        "Responsiveness",
+        "Quality assurance and testing",
+        "Quality maintenance, update, and bug fixes",
       ],
-      link: "/creative_desing",
+      link: "/creative_design",
     },
     {
       id: 4,
       title: "Organic Marketing",
       icon: "/img/organic.png",
       description:
-        "Boost your online presence with SEO, content marketing, and social media strategies to attract organic traffic.",
+        "Inflame Solution boosts your online presence with organic marketing strategies to attract and engage your audience.",
       features: [
-        "SEO optimization",
-        "Content creation",
-        "Social media management",
-        "Analytics tracking",
+        "Performance & Load Time",
+        "Reusable",
+        "Responsiveness",
+        "Quality assurance and testing",
+        "Quality maintenance, update, and bug fixes",
       ],
       link: "/organic_marketing",
     },
     {
       id: 5,
       title: "Paid Marketing",
-      icon: "/img/paid.png",
+      icon: "/img/software.png",
       description:
-        "Maximize ROI with targeted PPC campaigns, social media ads, and strategic ad placements.",
+        "Inflame Solution maximizes ROI with targeted paid marketing campaigns tailored to your business needs.",
       features: [
-        "PPC campaigns",
-        "Social media ads",
-        "Ad optimization",
-        "Performance reporting",
+        "Performance & Load Time",
+        "Reusable",
+        "Responsiveness",
+        "Quality assurance and testing",
+        "Quality maintenance, update, and bug fixes",
       ],
       link: "/paid_marketing",
     },
     {
       id: 6,
       title: "Products",
-      icon: "/img/product.png",
+      icon: "/img/software.png",
       description:
-        "Explore our suite of ready-to-use software products designed to solve common business challenges.",
+        "Inflame Solution offers innovative products designed to solve common business challenges efficiently.",
       features: [
-        "Pre-built solutions",
-        "Easy integration",
-        "Customizable features",
-        "Dedicated support",
+        "Performance & Load Time",
+        "Reusable",
+        "Responsiveness",
+        "Quality assurance and testing",
+        "Quality maintenance, update, and bug fixes",
       ],
       link: "/products",
     },
@@ -107,34 +113,34 @@ export default function Services() {
     {
       title: "Lite Plan",
       price: 29,
-      description: "Perfect for individuals and startups.",
+      description: "Perfect Choice For Individual",
       features: [
         "Powerful admin panel",
-        "Basic support",
-        "1 project",
-        "Monthly updates",
+        "Powerful admin panel",
+        "Powerful admin panel",
+        "Powerful admin panel",
       ],
     },
     {
       title: "Premium Plan",
       price: 59,
-      description: "Ideal for growing businesses.",
+      description: "Perfect Choice For Individual",
       features: [
-        "Advanced admin panel",
-        "Priority support",
-        "3 projects",
-        "Weekly updates",
+        "Powerful admin panel",
+        "Powerful admin panel",
+        "Powerful admin panel",
+        "Powerful admin panel",
       ],
     },
     {
       title: "Pro Plan",
       price: 79,
-      description: "Best for enterprises.",
+      description: "Perfect Choice For Individual",
       features: [
-        "Full admin panel",
-        "24/7 support",
-        "Unlimited projects",
-        "Daily updates",
+        "Powerful admin panel",
+        "Powerful admin panel",
+        "Powerful admin panel",
+        "Powerful admin panel",
       ],
     },
   ];
@@ -143,15 +149,21 @@ export default function Services() {
     <>
       <Head>
         <title>Services - Inflame Solutions</title>
-        <meta name="description" content="Explore Inflame Solutions' comprehensive services, including web design, software development, creative design, and marketing." />
-        <meta name="keywords" content="web development, software development, creative design, organic marketing, paid marketing, Inflame Solutions" />
+        <meta
+          name="description"
+          content="Explore Inflame Solutions' comprehensive services, including web design, software development, creative design, and marketing."
+        />
+        <meta
+          name="keywords"
+          content="web development, software development, creative design, organic marketing, paid marketing, Inflame Solutions"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
       <div className="servicespage bg-gray-50 dark:bg-gray-900 min-h-screen">
         {/* Hero Section */}
-        <section className="topservices bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
-          <div className="container mx-auto px-4">
+        <section className="topservices bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-8">
+          <div className="container mx-auto px-4 max-w-7xl">
             <motion.h2
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -161,19 +173,22 @@ export default function Services() {
               Inflame Solutions Services
             </motion.h2>
             <nav className="text-center text-lg">
-              <Link href="/" className="hover:underline">Home</Link> <span className="mx-2">/</span> Services
+              <Link href="/" className="hover:underline">
+                Home
+              </Link>{" "}
+              <span className="mx-2">/</span> Services
             </nav>
           </div>
         </section>
 
         {/* Services Section */}
-        <section className="centerservices py-16">
-          <div className="container mx-auto px-4">
+        <section className="centerservices py-8">
+          <div className="container mx-auto px-4 max-w-7xl">
             <motion.h2
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="text-3xl md:text-4xl font-semibold text-center text-gray-800 dark:text-white mb-12"
+              className="text-3xl md:text-4xl font-semibold text-center text-gray-800 dark:text-white mb-8"
             >
               Our Services
             </motion.h2>
@@ -192,7 +207,11 @@ export default function Services() {
                   </span>
                   <div className="flex items-center justify-between mt-4">
                     <h2 className="text-xl font-semibold text-gray-800 dark:text-white">{service.title}</h2>
-                    <img src={service.icon} alt={`${service.title} icon`} className="w-12 h-12 transition-transform duration-300 hover:scale-110" />
+                    <img
+                      src={service.icon}
+                      alt={`${service.title} icon`}
+                      className="w-12 h-12 transition-transform duration-300 hover:scale-110"
+                    />
                   </div>
                   <ul className="mt-4 space-y-2">
                     {service.features.map((feature, i) => (
@@ -204,9 +223,7 @@ export default function Services() {
                   </ul>
                   <p className="mt-4 text-gray-600 dark:text-gray-300">{service.description}</p>
                   <Link href={service.link}>
-                    <button className="learn_more_button">
-                      Learn More
-                    </button>
+                    <button className="learn_more_button mt-4">Learn More</button>
                   </Link>
                 </motion.div>
               ))}
@@ -215,13 +232,13 @@ export default function Services() {
         </section>
 
         {/* Pricing Section */}
-        <section className="pricingplansec bg-gray-100 dark:bg-gray-800 py-16">
-          <div className="container mx-auto px-4">
+        <section className="pricingplansec bg-gray-100 dark:bg-gray-800 py-8">
+          <div className="container mx-auto px-4 max-w-7xl">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="pricingtitles text-center mb-12"
+              className="pricingtitles text-center mb-8"
             >
               <h3 className="text-lg font-semibold text-blue-600 dark:text-blue-400 flex items-center justify-center">
                 <img src="/img/chevron_right.png" alt="Chevron icon" className="w-6 h-6 mr-2" />

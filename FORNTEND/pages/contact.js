@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useState } from "react";
-import { FaPhoneVolume, FaTwitter } from "react-icons/fa6";
+import { FaFacebook, FaPhoneVolume, FaTwitter } from "react-icons/fa6";
 import { GrLinkedin } from "react-icons/gr";
 import { MdAttachEmail } from "react-icons/md";
 import axios from "axios";
@@ -89,13 +89,13 @@ export default function Contact() {
                   <li>
                     <FaPhoneVolume />{" "}
                     <span>
-                      Phone: <a href="Tel:+8801880464045">+8801XXXXXXXX</a>
+                      Phone: <a href="Tel:+8801880464045">+8801897715426</a>
                     </span>
                   </li>
                   <li>
                     <MdAttachEmail />{" "}
                     <span>
-                      Email: <a href="mailto:test@gamil.com">text@gamil.com</a>
+                      Email: <a href="mailto:test@gamil.com">inflamesolutionltd@gmail.com</a>
                     </span>
                   </li>
                   <li>
@@ -108,6 +108,12 @@ export default function Contact() {
                     <FaTwitter />{" "}
                     <span>
                       Twitter: <a href="">@test</a>
+                    </span>
+                  </li>
+                  <li>
+                    <FaFacebook />{" "}
+                    <span>
+                      Facebook: <a href="">Inflame Solutions Ltd.</a>
                     </span>
                   </li>
                 </ul>

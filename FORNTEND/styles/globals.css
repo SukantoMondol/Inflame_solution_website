@@ -609,6 +609,8 @@ header.sticky {
     font-size: 16px;
     text-align: center;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+
   }
   
   .learn_more_button:hover {
@@ -683,6 +685,7 @@ header.sticky {
     display: flex;
     align-items: center;
     gap: 1.2rem;
+    margin-top: 1.5rem;
 }
 
 .hero_social li a {
@@ -890,11 +893,17 @@ header.sticky {
 /*out valuable client */
 .explore_websites {
   position: relative;
-  margin-bottom: 8rem;
-  padding: 4rem 4.5rem;
+
+
+  padding: 2rem 1rem;
   width: 100%;
-  background: url('/img/bg_respo.png') no-repeat center center/cover;
+  background: linear-gradient(145deg, #0d0819, #1a1230);
+  backdrop-filter: blur(8px);
   overflow: hidden;
+}
+
+.dark .explore_websites {
+  background: linear-gradient(145deg, #f5f5f5, #ffffff);
 }
 
 .explore_websites .threejs-canvas {
@@ -915,8 +924,11 @@ header.sticky {
 }
 
 .explore_website_title {
+
   text-align: center;
   margin-bottom: 3rem;
+  margin-top: 3rem;
+  font-size: 2.5rem;
 }
 
 .explore_website_title h3 {
@@ -928,11 +940,20 @@ header.sticky {
   margin-bottom: 0.5rem;
 }
 
+.dark .explore_website_title h3 {
+  background: linear-gradient(81deg, #a112cc 45.86%, #1ab7a3 56.96%);
+}
+
 .explore_website_title h2 {
   font-size: 2.5rem; /* 40px */
   font-weight: 600;
   color: #fff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dark .explore_website_title h2 {
+  color: #333;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .explore_website_cards {
@@ -943,7 +964,7 @@ header.sticky {
 
 .explore_website_cards .swiper {
   width: 100%;
-  padding: 1rem 0;
+  padding: 2rem 4rem;
 }
 
 .explore_website_cards .swiper-slide {
@@ -952,36 +973,47 @@ header.sticky {
 }
 
 .explore_website_card {
-  width: 100%;
-  height: 400px; /* Reduced for better mobile fit */
+  background: linear-gradient(145deg, #1a1230, #0d0819);
   padding: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark .explore_website_card {
+  background: linear-gradient(145deg, #ffffff, #f5f5f5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .explore_website_card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(135, 80, 247, 0.5);
 }
 
 .explore_website_card img {
   width: 100%;
-  height: 250px; /* Adjusted for better proportion */
-  object-fit: cover;
+  max-height: 200px;
+
+  padding: 1rem;
   border-radius: 12px;
   margin-bottom: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark .explore_website_card img {
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .explore_website_card h3 {
   font-size: 1.25rem; /* 20px */
   font-weight: 500;
   margin: 0.5rem 0;
+  color: #fff;
+}
+
+.dark .explore_website_card h3 {
+  color: #333;
 }
 
 .explore_website_card p {
@@ -990,58 +1022,50 @@ header.sticky {
   font-weight: 400;
 }
 
+.dark .explore_website_card p {
+  color: #555;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .explore_website_title h2 {
     font-size: 2rem; /* 32px */
   }
-
   .explore_website_title h3 {
     font-size: 1.25rem; /* 20px */
   }
-
-  .explore_website_card {
-    height: 360px;
+  .explore_website_cards .swiper-slide {
+    width: 300px;
   }
-
   .explore_website_card img {
-    height: 200px;
+    max-height: 180px;
   }
 }
 
 @media (max-width: 768px) {
   .explore_websites {
-    padding: 2rem 0;
-    margin-bottom: 4rem;
+    padding: 1.5rem 0.5rem;
+    margin-bottom: 2rem;
   }
-
   .explore_website_title h2 {
     font-size: 1.75rem; /* 28px */
   }
-
   .explore_website_title h3 {
     font-size: 1rem; /* 16px */
   }
-
   .explore_website_cards .swiper-slide {
     width: 280px; /* Smaller cards for mobile */
   }
-
   .explore_website_card {
-    height: 320px;
     padding: 0.75rem;
-    border-radius: 12px;
   }
-
   .explore_website_card img {
-    height: 180px;
+    max-height: 160px;
     border-radius: 10px;
   }
-
   .explore_website_card h3 {
     font-size: 1rem; /* 16px */
   }
-
   .explore_website_card p {
     font-size: 0.75rem; /* 12px */
   }
@@ -1051,16 +1075,10 @@ header.sticky {
   .explore_website_cards .swiper-slide {
     width: 240px; /* Even smaller for small screens */
   }
-
-  .explore_website_card {
-    height: 280px;
-  }
-
   .explore_website_card img {
-    height: 150px;
+    max-height: 140px;
   }
 }
-
 
 
 
@@ -1505,7 +1523,10 @@ header.sticky {
 
 .services_item.sactive .left_s_box span {
     color: var(--pure-white);
+
 }
+
+
 
 
 /* styles/preloader.css */
@@ -1640,7 +1661,7 @@ header.sticky {
 .projects {
     position: relative;
     padding: 8rem 1rem;
-    padding-top: 10rem;
+    padding-top: 3rem;
     background-color: #0f0715;
 }
 
@@ -3334,16 +3355,10 @@ header.sticky {
 }
 
 .cservicesbox {
-    width: 100%;
-    /* height: auto; */
-    position: relative;
-    /* display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-between; */
-    columns: 3;
-    column-gap: 3rem;
-    margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin: 20px auto;
 }
 
 .csservice {
@@ -3372,6 +3387,7 @@ header.sticky {
 
 .csservice img {
     width: 70px;
+    margin-left: 2erm;
 }
 
 .csservice ul li {
@@ -5657,8 +5673,8 @@ header.sticky {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #fff;
-    padding: 5px; /* Slightly increased padding */
+    background: #752571;
+ /* Slightly increased padding */
     border-radius: 4px; /* Optional for rounded corners */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -6792,7 +6808,7 @@ h2 {
 
     .quote {
       font-size: 1.1rem;
-      font-style: italic;
+
       color: #c4c4c4;
       margin-bottom: 20px;
       line-height: 1.6;
@@ -6989,12 +7005,12 @@ h2 {
     }
 
     .cta-content {
-      text-align: center;
+      text-align: enter;
       padding: 80px 40px;
       border-radius: 20px;
-      background: rgba(135, 80, 247, 0.15);
+      background: rgba(139, 137, 141, 0.15);
       backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 10px 30px rgba(11, 2, 8, 0.213);
       max-width: 800px;
       margin: 0 auto;
     }
@@ -7005,7 +7021,7 @@ h2 {
       background: linear-gradient(
         to right,
         var(--main-site-color) 0%,
-        #dddddd 100%
+        #ae0e0e 100%
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -7013,8 +7029,7 @@ h2 {
     }
 
     .dark .cta-content h2 {
-      background: linear-gradient(
-        to right,
+      background: whitesmoke,
         var(--main-site-color) 0%,
         var(--dark-site-secondary) 100%
       );
@@ -7268,6 +7283,7 @@ h2 {
 
       .cta-content h2 {
         font-size: 2.2rem;
+        
       }
 
       .cta-content p {
@@ -7318,7 +7334,7 @@ h2 {
     }
     
     .hero-title {
-      font-family: 'Orbitron', sans-serif;
+      font-family: inherit;
       font-size: 3.5rem;
       font-weight: 700;
       background: linear-gradient(90deg, #ce1bfb, #24ffdf);
@@ -7412,7 +7428,7 @@ h2 {
     }
     
     .section-title {
-      font-family: 'Orbitron', sans-serif;
+      font-family: inherit;
       font-size: 2.5rem;
       font-weight: 700;
       background: linear-gradient(90deg, #8750f7, #24ffdf);
@@ -7564,7 +7580,7 @@ h2 {
     /* CTA Section */
     .about-cta {
       padding: 7rem 1rem;
-      background: linear-gradient(300deg, #340688, #f750e6);
+      background: linear-gradient(300deg, #211b23, #0e030d);
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -7582,7 +7598,7 @@ h2 {
       font-size: 2.5rem;
       font-weight: 700;
       color: #fff;
-      text-shadow: 0 0 15px rgba(135, 80, 247, 0.7);
+      text-shadow: 0 0 15px rgba(26, 2, 28, 0.7);
       margin-bottom: 1rem;
     }
     
@@ -7757,7 +7773,7 @@ h2 {
     
 
   .h1 {
-    font-family: 'Orbitron', sans-serif;
+    font-family: inherit   ;
     font-size: 3.5rem;
     font-weight: 700;
     color: rgb(95, 11, 117);
@@ -7838,7 +7854,7 @@ h2 {
   
   
   .banner-text {
-    font-family: 'Orbitron', sans-serif;
+    font-family: inherit;
     font-size: 1.2rem;
     color: #00ffff;
   }
@@ -8036,30 +8052,9 @@ h2 {
     font-family: 'Orbitron', sans-serif;
     font-size: 1rem;
   }
-  .price {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #00ffff;
-    margin: 2rem 0;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-  }
-  .pricing-card ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 3rem;
-  }
-  .pricing-card li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1.2rem;
-    color: #d1d5db;
-  }
+  
   .cta {
-    background: linear-gradient(300deg, #4b0082 5%, #00ffff 700%);
-    color: #fff;
+    background: #0c0014;
     text-align: center;
     padding: 10rem 0;
     position: relative;
@@ -8071,7 +8066,7 @@ h2 {
   .cta-btn {
     background: #1a0b2e;
     color: #00ffff;
-    font-family: 'Orbitron', sans-serif;
+    font-family: inherit;
     font-size: 1.2rem;
     padding: 1.2rem 3rem;
   }

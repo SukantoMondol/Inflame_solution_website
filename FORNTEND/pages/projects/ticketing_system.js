@@ -12,7 +12,7 @@ export default function TicketingSoftware() {
   const [activeTab, setActiveTab] = useState("dashboard");
 
   const slides = [
-    { src: "/img/ticket-dashboard.jpg", alt: "TicketPro Dashboard" },
+    { src: "/img/img1.gif", alt: "TicketPro Dashboard" },
     { src: "/img/ticket-assignment.jpg", alt: "Ticket Assignment" },
     { src: "/img/analytics-reports.jpg", alt: "Analytics Reports" },
   ];
@@ -258,7 +258,7 @@ export default function TicketingSoftware() {
                 viewport={{ once: true }}
               >
                 <Image
-                  src="/img/ticket-benefits.png"
+                  src="/img/img2.gif"
                   alt="TicketPro Benefits"
                   width={880}
                   height={450}

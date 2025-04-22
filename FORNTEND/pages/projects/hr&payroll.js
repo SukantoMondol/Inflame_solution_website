@@ -12,7 +12,7 @@ export default function HRSoftware() {
   const [activeTab, setActiveTab] = useState("dashboard");
 
   const slides = [
-    { src: "/img/hr-dashboard.jpg", alt: "HRPro Dashboard" },
+    { src: "/img/img1.gif", alt: "HRPro Dashboard" },
     { src: "/img/payroll-processing.jpg", alt: "Payroll Automation" },
     { src: "/img/compliance-reports.jpg", alt: "Compliance Reports" },
   ];
@@ -258,7 +258,7 @@ export default function HRSoftware() {
                 viewport={{ once: true }}
               >
                 <Image
-                  src="/img/hr-benefits.png"
+                  src="/img/img3.gif"
                   alt="HRPro Benefits"
                   width={880}
                   height={450}

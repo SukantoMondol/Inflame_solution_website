@@ -262,7 +262,7 @@ export default function POSSoftware() {
                 viewport={{ once: true }}
               >
                 <Image
-                  src="/img/nodejs.png"
+                  src="/img/img2.gif"
                   alt="RetailPro Benefits"
                   width={880}
                   height={450}

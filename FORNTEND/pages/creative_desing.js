@@ -11,9 +11,9 @@ export default function SoftwareDevelopment() {
   const [activeTab, setActiveTab] = useState("development");
 
   const slides = [
-    { src: "/img/dev-platform.jpg", alt: "CodeZap Development Platform" },
-    { src: "/img/cloud-solutions.jpg", alt: "Cloud Solutions" },
-    { src: "/img/ai-tools.jpg", alt: "AI Integration Tools" },
+    { src: "/img/cr.gif", alt: "CodeZap Development Platform" },
+    { src: "/img/971.jpg", alt: "Cloud Solutions" },
+    { src: "/img/mig2.gif", alt: "AI Integration Tools" },
   ];
 
   const staggerContainer = {
@@ -254,7 +254,7 @@ export default function SoftwareDevelopment() {
                 viewport={{ once: true }}
               >
                 <Image
-                  src="/img/dev-benefits.png"
+                  src="/img/img4.gif"
                   alt="CodeZap Benefits"
                   width={1000}
                   height={550}

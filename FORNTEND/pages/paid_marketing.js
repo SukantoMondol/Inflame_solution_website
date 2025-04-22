@@ -11,7 +11,7 @@ export default function PaidMarketing() {
   const [activeTab, setActiveTab] = useState("ppc");
 
   const slides = [
-    { src: "/img/ppc-campaigns.jpg", alt: "AdBlitz PPC Campaigns" },
+    { src: "/img/img2.gif", alt: "AdBlitz PPC Campaigns" },
     { src: "/img/social-ads.jpg", alt: "Social Media Ads" },
     { src: "/img/display-ads.jpg", alt: "Display Advertising" },
   ];
@@ -254,7 +254,7 @@ export default function PaidMarketing() {
                 viewport={{ once: true }}
               >
                 <Image
-                  src="/img/marketing-benefits.png"
+                  src="/img/img4.gif"
                   alt="AdBlitz Benefits"
                   width={1000}
                   height={550}

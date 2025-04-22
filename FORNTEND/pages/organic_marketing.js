@@ -11,9 +11,9 @@ export default function OrganicMarketing() {
   const [activeTab, setActiveTab] = useState("seo");
 
   const slides = [
-    { src: "/img/seo-tools.jpg", alt: "GreenGrow SEO Tools" },
-    { src: "/img/content-strategy.jpg", alt: "Content Strategy" },
-    { src: "/img/social-media.jpg", alt: "Social Media Campaigns" },
+    { src: "/img/img1.gif", alt: "GreenGrow SEO Tools" },
+    { src: "/img/img2.gif", alt: "Content Strategy" },
+    { src: "/img/img3.gif", alt: "Social Media Campaigns" },
   ];
 
   const staggerContainer = {
@@ -80,7 +80,7 @@ export default function OrganicMarketing() {
   return (
     <>
       <Head>
-        <title>GreenGrow - Organic Marketing Solutions</title>
+        <title>Organic Marketing Solutions</title>
         <meta
           name="description"
           content="Elevate your brand with GreenGrow’s sustainable organic marketing strategies, including SEO, content, and social media."
@@ -105,7 +105,7 @@ export default function OrganicMarketing() {
               transition={{ duration: 1.5, ease: "easeOut" }}
             >
               <h1 className="h1">
-                Grow Naturally with <span>GreenGrow</span>
+                Grow Naturally with <span>Organic Marketing</span>
               </h1>
               <p className="p">
                 Elevate your brand with sustainable organic marketing strategies, including SEO, content, and social media campaigns.
@@ -134,7 +134,7 @@ export default function OrganicMarketing() {
               animate="animate"
             >
               <Image
-                src="/img/marketing-hero.png"
+                src="/img/img5.jpg"
                 alt="GreenGrow Platform"
                 width={1200}
                 height={650}
@@ -254,7 +254,7 @@ export default function OrganicMarketing() {
                 viewport={{ once: true }}
               >
                 <Image
-                  src="/img/marketing-benefits.png"
+                  src="/img/img3.gif"
                   alt="GreenGrow Benefits"
                   width={1000}
                   height={550}

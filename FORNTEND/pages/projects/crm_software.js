@@ -12,7 +12,7 @@ export default function CRMSoftware() {
   const [activeTab, setActiveTab] = useState("dashboard");
 
   const slides = [
-    { src: "/img/crm-dashboard.jpg", alt: "CRMPro Dashboard" },
+    { src: "/img/img2.gif", alt: "CRMPro Dashboard" },
     { src: "/img/lead-management.jpg", alt: "Lead Management" },
     { src: "/img/sales-analytics.jpg", alt: "Sales Analytics" },
   ];
@@ -134,7 +134,7 @@ export default function CRMSoftware() {
               animate="animate"
             >
               <Image
-                src="/img/crm-hero.png"
+                src="/img/img3.gif"
                 alt="CRMPro Dashboard"
                 width={1000}
                 height={550}
@@ -258,7 +258,7 @@ export default function CRMSoftware() {
                 viewport={{ once: true }}
               >
                 <Image
-                  src="/img/crm-benefits.png"
+                  src="/img/img3.gif"
                   alt="CRMPro Benefits"
                   width={880}
                   height={450}

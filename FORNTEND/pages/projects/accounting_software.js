@@ -13,7 +13,7 @@ export default function AccountingSoftware() {
   const [activeTab, setActiveTab] = useState("dashboard");
 
   const slides = [
-    { src: "/img/2.jpg", alt: "AccountPro Dashboard" },
+    { src: "/img/img1.gif", alt: "AccountPro Dashboard" },
     { src: "/img/1.jpg", alt: "Automated Invoicing" },
     { src: "/img/3.jpg", alt: "Financial Reports" },
   ];
@@ -135,7 +135,7 @@ export default function AccountingSoftware() {
               animate="animate"
             >
               <Image
-                src="/img/img5.png"
+                src="/img/img2.gif"
                 alt="AccountPro Dashboard"
                 width={1000}
                 height={550}

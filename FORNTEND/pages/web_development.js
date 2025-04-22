@@ -11,9 +11,9 @@ export default function WebDevelopment() {
   const [activeTab, setActiveTab] = useState("responsive");
 
   const slides = [
-    { src: "/img/web_design_slide1.jpg", alt: "Responsive Web Design" },
-    { src: "/img/web_design_slide2.jpg", alt: "SEO Optimization" },
-    { src: "/img/web_design_slide3.jpg", alt: "Custom UI/UX" },
+    { src: "/img/webdesing.png", alt: "Responsive Web Design" },
+    { src: "/img/webdesing.png", alt: "SEO Optimization" },
+    { src: "/img/webdesing.png", alt: "Custom UI/UX" },
   ];
 
   const staggerContainer = {
@@ -139,7 +139,7 @@ export default function WebDevelopment() {
               animate="animate"
             >
               <Image
-                src="/img/web_design_hero.svg"
+                src="/img/3d.png.gif"
                 alt="Web Design Illustration"
                 width={800}
                 height={400}
@@ -262,7 +262,7 @@ export default function WebDevelopment() {
                 viewport={{ once: true }}
               >
                 <Image
-                  src="/img/web_design_benefits.svg"
+                  src="/img/971.jpg"
                   alt="Web Design Benefits"
                   width={600}
                   height={400}
