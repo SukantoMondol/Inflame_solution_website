@@ -112,32 +112,32 @@ export default function About() {
           <div className="team-grid">
             {[
               {
-                name: "John Doe",
-                position: "CEO & Founder",
-                image: "/img/1.jpg",
+                name: "Joseph Zheng",
+                position: "Maneging Director",
+                image: "/img/boss1.jpeg",
                 description:
-                  "John spearheads our mission with 15+ years of IT expertise.",
+                  "Joseph Zheng our mission with 15+ years of IT expertise.",
               },
               {
-                name: "Jane Smith",
-                position: "CTO",
-                image: "/img/2.jpg",
+                name: "Noor Ahmed",
+                position: "Director",
+                image: "/img/boss2.jpeg",
                 description:
-                  "Jane drives our tech forward with visionary innovation.",
+                  "Noor Ahmed our tech forward with visionary innovation.",
               },
               {
-                name: "Michael Brown",
-                position: "Lead Developer",
-                image: "/img/3.jpg",
+                name: "Sumaiya Islam",
+                position: "Business Development Manager",
+                image: "/img/su.jpeg",
                 description:
-                  "Michael builds robust, scalable solutions with precision.",
+                  "Sumaiya Islam robust, scalable solutions with precision.",
               },
               {
-                name: "Emily Wilson",
-                position: "Creative Director",
-                image: "/img/2.jpg",
+                name: "Arif Mohammad Saleh",
+                position: "Corporate Manager ",
+                image: "/img/mg2.jpeg",
                 description:
-                  "Emily infuses creativity into every project’s design.",
+                  "Arif Mohammad Saleh creativity into every project’s design.",
               },
             ].map((employee, index) => (
               <div key={index} className="team-member fade-element">

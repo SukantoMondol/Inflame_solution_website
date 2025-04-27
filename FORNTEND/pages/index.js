@@ -543,7 +543,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero_btn_box">
-            <Link href="/contacts" className="learn_more_button">
+            <Link href="/contact" className="learn_more_button">
               Learn More
             </Link>
             <ul className="hero_social">
