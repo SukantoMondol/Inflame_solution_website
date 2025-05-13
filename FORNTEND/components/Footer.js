@@ -49,18 +49,20 @@ export default function Footer() {
         {/* Contact Info + Map */}
         <div className="footer-col contact">
           <h3>Contact Us</h3>
-          <p><BiSolidPhoneCall /> +880 1234 567890</p>
-          <p><HiOutlineMail /> info@inflamesolutions.com</p>
-          <p>📍 Bashundhara R/A, Dhaka</p>
+          <p><BiSolidPhoneCall /> +8801897715426</p>
+          <p><HiOutlineMail /> inflamesolutionsltd@gamil.com</p>
+          <p>📍 Gulshan-2,Road:115,House No:32</p>
           <div className="mapouter">
             <iframe
               className="gmap_iframe"
               width="100%"
               height="160"
-              frameBorder="0"
-              scrolling="no"
-              src="https://maps.google.com/maps?q=bashundhara%20r/a%20dhaka&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            ></iframe>
+              style={{ border: 0 }}
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.782239069163!2d90.41553141498125!3d23.789543184572113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7a178857d29%3A0x6e26380b44daf92e!2sHouse%2032%2C%20Rd%20115%2C%20Dhaka%201212%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v1714215675392!5m2!1sen!2sbd"
+            />
           </div>
         </div>
       </div>
